@@ -27,3 +27,24 @@ def perfil(request):
     }
     
     return render(request, 'perfil.html', contexto)
+
+@login_required
+def alterar(request, id):
+    usuario = User.objects.get(id=request.user.id)
+    perfil_usuario = Perfil.objects.get(user=request.user.id)
+    form = UserForm(request.POST or None, instance=usuario)
+    form_perfil = PerfilForm(request.POST or None, request.FILES or None, 
+                            instance=perfil_usuario)
+    contexto = {
+        'usuario':usuario,
+        'perfil_usuario':perfil_usuario,
+        'form':form,
+        'form_perfil':form_perfil,
+    }
+    if request.method == 'POST':
+        if form_perfil.is_valid():
+            edit = form_perfil.save(commit=False)
+            edit.save()
+            return redirect('informacoes-pessoais')
+        
+    return render(request,'alterar-informacoes.html', contexto)
