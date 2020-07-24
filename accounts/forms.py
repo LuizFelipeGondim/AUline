@@ -32,10 +32,10 @@ class UserForm(UserCreationForm):
 class PerfilForm(forms.ModelForm):
     class Meta:
         model = Perfil
-        fields = ('data_de_nascimento', 'telefone', 'foto', 'cidade_usuario', 'estado_usuario', 'biografia')
+        fields = ('data_de_nascimento', 'whatsapp', 'avatar', 'cidade_usuario', 'estado_usuario', 'biografia')
         widgets = {
             'data_de_nascimento': forms.DateInput(attrs={'class':'form-control', 'placeholder':'DD/MM/YYYY'}),
-            'telefone': forms.TextInput(attrs={'class':'form-control', 'placeholder':'(77)98888-8888'}),
+            'whatsapp': forms.TextInput(attrs={'class':'form-control', 'placeholder':'(77)98888-8888'}),
             'cidade_usuario': forms.TextInput(attrs={'class':'form-control labe', }),
             'estado_usuario': forms.TextInput(attrs={'class':'form-control'}),
             'biografia': forms.TextInput(attrs={'class':'form-control'}),

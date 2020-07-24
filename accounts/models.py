@@ -10,7 +10,7 @@ class Perfil(models.Model):
     whatsapp = models.CharField('Whatsapp', max_length=15)
     estado_usuario = models.CharField('Estado', max_length=50)
     cidade_usuario = models.CharField('Cidade', max_length=50, blank=True)
-    biografia = models.CharField('Fale um pouco sobre você', max_length=400, blank=True)
+    biografia = models.TextField('Fale um pouco sobre você', max_length=400, blank=True)
 
     def __str__(self):
         return self.user.username

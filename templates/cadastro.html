@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {{ form_perfil.as_p }}
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+{% endblock conteudo %}
