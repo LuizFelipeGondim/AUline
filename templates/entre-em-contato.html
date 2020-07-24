@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    <div class="container">
+        <div class="row">
+            <form method="post" class="form">
+                <h1 class="h3 mb-3 "> Entre em Contato </h1>
+                {% csrf_token %}
+                <label class="label-form"> Nome(Opcional) </label>
+                {{form.nome}}
+                <label class="label-form"> E-mail </label>
+                {{form.email}}
+                <label class="label-form"> Como podemos ajudá-lo? </label>
+                {{form.conteudo}}    
+                
+                <button type="submit" class="btn btn-primary"> Enviar </button>
+            </form>
+        </div>
+    </div>
+{% endblock conteudo %}

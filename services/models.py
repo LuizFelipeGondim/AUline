@@ -6,9 +6,10 @@ class Contato(models.Model):
     data_envio = models.DateTimeField('Comentado em', auto_now=True)
     conteudo = models.TextField('Como podemos ajudá-lo?', max_length=300)
     email = models.EmailField('E-mail', max_length=100)
+    titulo = models.CharField('Título', max_length=80)
 
     def __str__(self):
-        return self.nome
+        return self.titulo
 
     class Meta:
         ordering = ('-data_envio',)

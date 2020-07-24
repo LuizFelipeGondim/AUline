@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required 
 from accounts.models import Perfil
 from django.core.paginator import Paginator
+from services.forms import ContatoForm
 
 
 def lista_animal(request):
@@ -109,3 +110,16 @@ def perfil_animal(request, id):
             return redirect('/')'''
     
     return render(request, 'perfil-animal.html', contexto) 
+
+def contato(request):
+    form = ContatoForm(request.POST or None)
+
+    contexto = {
+        'form':form
+    }
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    return render(request, 'entre-em-contato.html', contexto)

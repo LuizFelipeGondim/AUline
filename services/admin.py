@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import PontoAcesso, Contato, Depoimento
 
-# Register your models here.
+admin.site.register(PontoAcesso)
+admin.site.register(Contato)
+admin.site.register(Depoimento)
