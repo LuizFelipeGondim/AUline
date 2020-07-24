@@ -48,3 +48,13 @@ def alterar(request, id):
             return redirect('informacoes-pessoais')
         
     return render(request,'alterar-informacoes.html', contexto)
+
+@login_required
+def informacoes(request):
+    usuario = User.objects.get(id=request.user.id)
+    perfil_usuario = Perfil.objects.filter(user=request.user.id).first
+    contexto = {
+        'usuario':usuario,
+        'perfil_usuario':perfil_usuario,
+    }
+    return render(request, 'informacoes-pessoais.html', contexto)
