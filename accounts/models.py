@@ -13,4 +13,4 @@ class Perfil(models.Model):
     biografia = models.TextField('Fale um pouco sobre você', max_length=400, blank=True)
 
     def __str__(self):
-        return self.user.username
+        return self.usuario.username
