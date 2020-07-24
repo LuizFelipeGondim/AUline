@@ -7,12 +7,8 @@ db.sqlite3
 media/posts/*
 !media/posts/.gitkeep
 media/perfil/*
-<<<<<<< HEAD
 
 !media/perfil/unknown.png
-=======
-!media/perfil/.gitkeep
->>>>>>> parent of dbef904... .gitignore modified
 
 # Backup files # 
 *.bak 
