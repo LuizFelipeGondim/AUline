@@ -58,3 +58,9 @@ def informacoes(request):
         'perfil_usuario':perfil_usuario,
     }
     return render(request, 'informacoes-pessoais.html', contexto)
+
+@login_required
+def excluir_animal(request, id_animal):
+    animal = Animal.objects.get(id=id_animal)
+    animal.delete()
+    return redirect('animais')
