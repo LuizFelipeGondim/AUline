@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-from publicacoes.models import Animal
+from publications.models import Animal
 from django.contrib.auth.models import User
-from users.models import Perfil
-from users.forms import UserForm, PerfilForm
-from publicacoes.forms import AnimalForm
+from accounts.models import Perfil
+from accounts.forms import UserForm, PerfilForm
+from publications.forms import AnimalForm
 from django.contrib.auth.decorators import login_required 
 
 @login_required
@@ -12,7 +12,7 @@ def perfil(request):
     ids = []
     animais = Animal.objects.filter(usuario=request.user.id)
     usuario = User.objects.get(id=request.user.id)
-    perfil_usuario = Perfil.objects.filter(user=request.user.id).first
+    perfil_usuario = Perfil.objects.filter(usuario=request.user.id).first
 
     for animal in animais:
         categorias[animal.id] = animal.categoria
@@ -31,7 +31,7 @@ def perfil(request):
 @login_required
 def alterar(request, id):
     usuario = User.objects.get(id=request.user.id)
-    perfil_usuario = Perfil.objects.get(user=request.user.id)
+    perfil_usuario = Perfil.objects.get(usuario=request.user.id)
     form = UserForm(request.POST or None, instance=usuario)
     form_perfil = PerfilForm(request.POST or None, request.FILES or None, 
                             instance=perfil_usuario)
@@ -52,7 +52,7 @@ def alterar(request, id):
 @login_required
 def informacoes(request):
     usuario = User.objects.get(id=request.user.id)
-    perfil_usuario = Perfil.objects.filter(user=request.user.id).first
+    perfil_usuario = Perfil.objects.filter(usuario=request.user.id).first
     contexto = {
         'usuario':usuario,
         'perfil_usuario':perfil_usuario,
@@ -69,7 +69,7 @@ def excluir_animal(request, id_animal):
 def editar_animal(request, id_animal):
     animal = Animal.objects.get(id=id_animal)
     usuario = User.objects.get(id=request.user.id)
-    perfil_usuario = Perfil.objects.get(user=request.user.id)
+    perfil_usuario = Perfil.objects.get(usuario=request.user.id)
     form = AnimalForm(request.POST or None, request.FILES or None,
                     instance=animal)
     if request.user == animal.usuario:

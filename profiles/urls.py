@@ -1,4 +1,4 @@
-from .views import perfil, alterar, informacoes, excluir_conta, excluir_animal, editar_animal
+from .views import perfil, alterar, informacoes, excluir_animal, editar_animal
 from django.urls import path
 
 urlpatterns = [
