@@ -75,9 +75,8 @@ class Comentario(models.Model):
     data_coment = models.DateTimeField(default=timezone.now)
     conteudo = models.TextField('Comentário', max_length=300)
     aprovado = models.BooleanField(default=True)
-    like = models.IntegerField()
+    like = models.IntegerField(blank=True, default=0)
 
     def __str__(self):
-        return self.animal.nome , self.autor.username
-
+        return self.animal.nome 
 

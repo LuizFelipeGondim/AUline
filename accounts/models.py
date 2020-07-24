@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Perfil(models.Model):
     
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField('Foto de Perfil', upload_to='perfil', default='perfil/unknow.png')
+    avatar = models.ImageField('Foto de Perfil', upload_to='perfil', default='perfil/unknown.png')
     data_de_nascimento = models.DateField('Data de nascimento', max_length=10)
     whatsapp = models.CharField('Whatsapp', max_length=15)
     estado_usuario = models.CharField('Estado', max_length=50)
