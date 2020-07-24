@@ -64,3 +64,27 @@ def excluir_animal(request, id_animal):
     animal = Animal.objects.get(id=id_animal)
     animal.delete()
     return redirect('animais')
+
+@login_required
+def editar_animal(request, id_animal):
+    animal = Animal.objects.get(id=id_animal)
+    usuario = User.objects.get(id=request.user.id)
+    perfil_usuario = Perfil.objects.get(user=request.user.id)
+    form = AnimalForm(request.POST or None, request.FILES or None,
+                    instance=animal)
+    if request.user == animal.usuario:
+        contexto = {
+            'usuario':usuario,
+            'perfil_usuario':perfil_usuario,
+            'form':form,
+            'animal':animal,
+        }
+        if request.method == 'POST':
+            if form.is_valid():
+                edit = form.save(commit=False)
+                edit.save()
+                return redirect('animais')
+
+        return render(request, 'editar-animal.html', contexto)
+    else:
+        return redirect('animais')
