@@ -3,7 +3,11 @@
 *.pyc
 __pycache__
 db.sqlite3
-media
+
+media/posts/*
+!media/posts/.gitkeep
+media/perfil/*
+!media/perfil/.gitkeep
 
 # Backup files # 
 *.bak 
