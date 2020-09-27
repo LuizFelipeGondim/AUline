@@ -69,14 +69,3 @@ class Animal(models.Model):
         return self.nome
 
 
-class Comentario(models.Model):
-    animal = models.ForeignKey('Animal', on_delete=models.CASCADE)
-    autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    data_coment = models.DateTimeField(default=timezone.now)
-    conteudo = models.TextField('Comentário', max_length=300)
-    aprovado = models.BooleanField(default=True)
-    like = models.IntegerField(blank=True, default=0)
-
-    def __str__(self):
-        return self.animal.nome 
-

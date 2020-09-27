@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Animal, Comentario
+from .models import Animal
 from django import forms
 
 class AnimalForm(ModelForm):
@@ -18,8 +18,3 @@ class AnimalForm(ModelForm):
             'raca': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Informe a raça'}),
             'motivo': forms.Textarea(attrs={'class':'form-control', 'placeholder':'Informe o motivo'}),
         }
-
-class ComentarioForm(ModelForm):
-    class Meta:
-        model = Comentario
-        fields = ['conteudo', 'like']
