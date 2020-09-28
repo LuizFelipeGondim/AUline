@@ -1,10 +1,10 @@
-from .views import perfil, alterar, informacoes, excluir_animal, editar_animal
+from . import views
 from django.urls import path
 
 urlpatterns = [
-    path('animais', perfil, name='animais'),
-    path('alterar-informacoes/<int:id>/', alterar, name='alterar-informacoes'),
-    path('informacoes-pessoais', informacoes, name='informacoes-pessoais'),
-    path('excluir-animal/<int:id_animal>/', excluir_animal, name='excluir-animal'),
-    path('editar-animal/<int:id_animal>/', editar_animal, name='editar-animal'),
+    path('animais', views.perfil, name='animais'),
+    path('alterar-informacoes/<int:id>/', views.alterar, name='alterar-informacoes'),
+    path('informacoes-pessoais', views.informacoes, name='informacoes-pessoais'),
+    path('excluir-animal/<int:id_animal>/', views.excluir_animal, name='excluir-animal'),
+    path('editar-animal/<int:id_animal>/', views.editar_animal, name='editar-animal'),
 ]
