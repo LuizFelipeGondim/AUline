@@ -1,5 +1,188 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block complemento %} 
+    <link rel="stylesheet" href="{% static 'css/form.css'%}">
+    <link rel="stylesheet" href="{% static 'css/profile.css'%}">
+{% endblock complemento %}
+
+{% block titulo %} Rex | Editar {% endblock titulo %}
 
 {% block conteudo %}
+    <section class="content-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="sidebar">
+                        <figure>
+                            <img src="{% static 'images/saitama.jpg'%}" class="img-profile" alt="Foto de perfil">
+                        </figure>
+                        
+                        <div class="name">
+                            <h4>LUIZ FELIPE</h2>
+                        </div>
+                        <div class="bio">
+                            <p class="gray">
+                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+                                consectetur, adipisci velit...
+                            </p>
+                        </div>
+                        <div class="info">
+                            <h5 class="black" >INFORMAÇÕES:</h5>
+                            <ul>
+                                <li class="gray">luiz@gmail.com</li>
+                                <li class="gray">Guanambi - BA</li>
+                                <li class="gray">(77) 99999-9999</li>
+                            </ul>
+                        </div>
+                        <div class="button-bar center">
+                            <a href="{% url 'animais' %}" class="black text-center center " > ANIMAIS CADASTRADOS</a>
+                            <a href="{% url 'alterar-informacoes' usuario.id %}" class="black text-center center"  >ALTERAR INFORMAÇÕES</a>
+                            <a href="" class="black text-center center"  >EXCLUIR CONTA</a>
+                            <a href="{% url 'logout' %}" class="black text-center center" >SAIR</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="content-form">
 
+                        <form method="POST" class="form-long">
+                            <div class="container">
+                                <div class="row">
+                                    <di class="col-md-12">
+                                        <h1 class="green title title-form">EDITAR ANIMAL</h1>
+
+                                    </di>
+                                    <div class="col-md-12">
+                                        <div class="form-row">
+        
+                                            <div class="form-group col-md-6">
+                                                <label class="form-title gray">Categoria</label> <br>
+                                                <select class="form-input">
+                                                    <option value="">Perdido</option>
+                                                    <option value="">Para adoção</option>
+                                                    <option value="">Adotado</option>
+                                                </select>
+                                            </div>
+        
+                                            <div class="form-group col-md-6">
+                                                <label class="form-title gray">Estado</label> <br>
+                                                <select class="form-input">
+                                                    <option value="">Bahia</option>
+                                                    <option value="">Minas Gerais</option>
+                                                    <option value="">...</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="form-group col-md-6" style="margin-top:-4px;">
+                                                <label class="form-title gray">Nome</label> <br>
+                                                <input type="text" class="form-input" placeholder="Nome">
+                                            </div>
+        
+                                            <div class="form-group col-md-6">
+                                                <label class="form-title gray">Cidade</label> <br>
+                                                <select class="form-input">
+                                                    <option value="">Guanambi</option>
+                                                    <option value="">Monte Alto</option>
+                                                    <option value="">...</option>
+                                                </select>
+                                            </div>
+        
+                                            <div class="form-group col-md-6">
+                                                <label class="form-title gray">Tipo</label> <br>
+                                                <select class="form-input">
+                                                    <option value="">Cachorro</option>
+                                                    <option value="">Gato</option>
+                                                </select>
+                                            </div>
+        
+                                            <div class="form-group col-md-6" style="margin-top:-4px;">
+                                                <label class="form-title gray">Rua</label> <br>
+                                                <input type="text" class="form-input" placeholder="Rua onde foi visto pela última vez">
+                                            </div>
+                                            
+                                            <div class="form-group col-md-6">
+                                                <label class="form-title gray">Porte</label> <br>
+                                                <select class="form-input">
+                                                    <option value="">Pequeno</option>
+                                                    <option value="">Médio</option>
+                                                    <option value="">Grande</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="form-group col-md-6" style="margin-top:-4px;">
+                                                <label class="form-title gray">Raça</label> <br>
+                                                <input type="text" class="form-input" placeholder="Vira-lata">
+                                            </div>
+                                            
+                                            <div class="form-group col-md-6">
+                                                <label class="form-title gray">Sexo</label> <br>
+                                                <select class="form-input">
+                                                    <option value="">Macho</option>
+                                                    <option value="">Fêmea</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="form-group col-md-6">
+                                                <label class="form-title gray">Vacinado</label> <br>
+                                                <select class="form-input">
+                                                    <option value="">Não informado</option>
+                                                    <option value="">Sim</option>
+                                                    <option value="">Não</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label class="form-title gray">Castrado</label> <br>
+                                                <select class="form-input">
+                                                    <option value="">Não informado</option>
+                                                    <option value="">Sim</option>
+                                                    <option value="">Não</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="form-group col-md-6">
+                                                <label class="form-title gray">Vermifugado</label> <br>
+                                                <select class="form-input">
+                                                    <option value="">Não informado</option>
+                                                    <option value="">Sim</option>
+                                                    <option value="">Não</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="form-group col-md-6">
+                                                <label class="form-title gray">Características</label> <br>
+                                                <textarea cols="30" rows="6"class="form-textarea" placeholder="Características do animal">
+                                                </textarea>
+                                            </div>
+
+                                            <div class="form-group col-md-6" style="margin-top:-4px;">
+                                                <label class="form-title gray">Imagem</label> <br>
+                                                <input type="text" class="form-input" placeholder="Campo temporário">
+                                            </div>
+                                            
+                                            <div class="form-group col-md-6">
+                                                <label class="form-title gray">Comentário</label> <br>
+                                                <textarea cols="30" rows="6"class="form-textarea">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="center text-center">
+                                        <button type="submit" class="button-green form-btn">Editar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="white text-opacity">© 2020 AUline, Inc.</p>   
+            <a href="{% url 'entre-em-contato' %}" class="white">Entre em contato</a> 
+        </div>
+    </footer>
 {% endblock conteudo %}

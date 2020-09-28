@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block complemento %} 
+    <link rel="stylesheet" href="{% static 'css/profile.css'%}">
+{% endblock complemento %}
+
+{% block titulo %} Perfil | Carlos {% endblock titulo %}
+        
+{% block conteudo %}
+    <section class="content-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="sidebar">
+                        <figure>
+                            <img src="{% static 'images/saitama.jpg'%}" class="img-profile" alt="Foto de perfil">
+                        </figure>
+                        
+                        <div class="name">
+                            <h4>LUIZ FELIPE</h2>
+                        </div>
+                        <div class="bio">
+                            <p class="gray">
+                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+                                consectetur, adipisci velit...
+                            </p>
+                        </div>
+                        <div class="info">
+                            <h5 class="black" >INFORMAÇÕES:</h5>
+                            <ul>
+                                <li class="gray">luiz@gmail.com</li>
+                                <li class="gray">Guanambi - BA</li>
+                                <li class="gray">(77) 99999-9999</li>
+                            </ul>
+                        </div>
+                    
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="content">
+
+                        <h1 class="title green">ANIMAIS CADASTRADOS</h1>
+                        <div class="cards">
+                            <div class="card">  
+                                <a href="" > 
+                                    <img src="{% static 'images/dog.jpg'%}" class="card-img-top" alt="animal">
+                                </a>
+                                <div class="card-body">
+                                    <div class="info-top">
+
+                                        <h5 class="black">Rex</h5>
+
+                                    </div>
+                                    
+                                    <p class="black text-opacity localization">Guanambi</p>
+                                    <div class="block-info">
+                                        <div class="info" style="background-color: red" data-toggle="tooltip" data-placement="top" title="Perdido">
+                                            <p class="white">P</p>
+                                        </div>
+                                        <div class="info size" data-toggle="tooltip" data-placement="top" title="Médio">
+                                            <p class="white">M</p>
+                                        </div>
+                                        <div class="info sex-male" data-toggle="tooltip" data-placement="top" title="Macho">
+                                            <p class="white">M</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>          
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="white text-opacity">© 2020 AUline, Inc.</p>   
+            <a href="{% url 'entre-em-contato' %}" class="white">Entre em contato</a> 
+        </div>
+    </footer>
+{% endblock conteudo %}

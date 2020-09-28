@@ -1,58 +1,108 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block complemento %} 
+    <link rel="stylesheet" href="{% static 'css/profile.css'%}">
+{% endblock complemento %}
+
+{% block titulo %} Perfil | Luiz {% endblock titulo %}
+
 {% block conteudo %}
     {{ categorias|json_script:'categorias' }}
     {{ ids|json_script:'ids' }}
     <script type="text/javascript" src="{% static 'js/categorias.js' %}"></script>
     <body onload="CategoriaAnimal();" >
 
-        <div class="container" style="background-color:#00ACED;">
-            <div class="row">
-                <div class="profilebar">
-                    <img src="../media/{{perfil_usuario.foto}}" alt="{{usuario.username}}" class="img-profile">
-                    <h3>{{usuario.username}}</h3>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row-profile">
-                <div class="sidebar">
-                    <a class="active" href="{% url 'animais'%}">Animais cadastrados</a>
-                    <a href="{% url 'informacoes-pessoais'%}">Informações pessoais</a>
-                    <a href="{% url 'alterar-informacoes' usuario.id %}">Alterar Informações pessoais</a>
-                
-                    <a href="{% url 'logout' %}">Sair</a>
-                </div>
-            
-            
-                <!-- Page content -->
-                <div class="content-profile">
-                    {% for animal in animais %}
-                        <div class="card-perfil">
-                            <img class="card-img-top img-profile-animal" 
-                            src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
-                            <div class="card-body">
-                                <div class="card-body-top">
-                                    <p>{{animal.nome}}</p>
-                                    <div>
-                                        <a href="{% url 'editar-animal' animal.id %}" class="icon-crud">
-                                            <img src="{% static 'imagens/edit.svg' %}" alt="editar">
-                                        </a>
-                                        <a href="{% url 'excluir-animal' animal.id %}" class="icon-crud">
-                                            <img src="{% static 'imagens/trash-2.svg' %}" alt="apagar">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="carac" id="{{animal.id}}">
-                                    <p>{{animal.categoria}}</p>
-                                </div>
+        <section class="content-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="sidebar">
+                            <figure>
+                                <img src="{% static 'images/saitama.jpg'%}" class="img-profile" alt="Foto de perfil">
+                            </figure>
+                            
+                            <div class="name">
+                                <h4>LUIZ FELIPE</h2>
+                            </div>
+                            <div class="bio">
+                                <p class="gray">
+                                    Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+                                    consectetur, adipisci velit...
+                                </p>
+                            </div>
+                            <div class="info">
+                                <h5 class="black" >INFORMAÇÕES:</h5>
+                                <ul>
+                                    <li class="gray">luiz@gmail.com</li>
+                                    <li class="gray">Guanambi - BA</li>
+                                    <li class="gray">(77) 99999-9999</li>
+                                </ul>
+                            </div>
+                            <div class="button-bar center">
+                                <a href="{% url 'animais' %}" class="black text-center center active-link" >
+                                    ANIMAIS CADASTRADOS
+                                </a>
+                                <a href="{% url 'alterar-informacoes' usuario.id %}" class="black text-center center"  >ALTERAR INFORMAÇÕES</a>
+                                <a href="" class="black text-center center"  >EXCLUIR CONTA</a>
+                                <a href="{% url 'logout' %}" class="black text-center center" >SAIR</a>
                             </div>
                         </div>
-                    {% endfor %} 
+                    </div>
+                    <div class="col-md-9">
+                        <div class="content">
+
+                            <h1 class="title green">ANIMAIS CADASTRADOS</h1>
+                            <div class="cards">
+                                <div class="card">  
+                                    <a href="" > 
+                                        <img src="{% static 'images/dog.jpg'%}" class="card-img-top" alt="animal">
+                                    </a>
+                                    <div class="card-body">
+                                        <div class="info-top">
+
+                                            <h5 class="black">Rex</h5>
+
+                                            <div class="icons" >
+                                                <a href="" > 
+                                                    <img src="{% static 'images/svg/edit.svg'%}" class="small-icon" alt="Alterar">
+                                                </a>
+                                                <a href="" >
+                                                    <img src="{% static 'images/svg/trash.svg'%}" class="small-icon" alt="Excluir">
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                        
+                                        <p class="black text-opacity localization">Guanambi</p>
+                                        <div class="block-info">
+                                            <div class="info" style="background-color: red" data-toggle="tooltip" data-placement="top" title="Perdido">
+                                                <p class="white">P</p>
+                                            </div>
+                                            <div class="info size" data-toggle="tooltip" data-placement="top" title="Médio">
+                                                <p class="white">M</p>
+                                            </div>
+                                            <div class="info sex-male" data-toggle="tooltip" data-placement="top" title="Macho">
+                                                <p class="white">M</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>  
+
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>   
+        </section>
+    
+        <footer>
+            <div class="container">
+                <p class="white text-opacity">© 2020 AUline, Inc.</p>   
+                <a href="{% url 'entre-em-contato' %}" class="white">Entre em contato</a> 
+            </div>
+        </footer>
     </body>  
 
 {% endblock conteudo %}

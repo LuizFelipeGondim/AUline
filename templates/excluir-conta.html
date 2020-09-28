@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block complemento %} 
+    <link rel="stylesheet" href="{% static 'css/form.css'%}">
+{% endblock complemento %}
+
+{% block titulo %} Excluir conta {% endblock titulo %}
+
+{% block conteudo %}
+
+    <section class="form-main">
+        <form method="POST">
+            <div class="delete-box">
+                <h1 class="green title">EXCLUIR CONTA</h1>
+                <p class="description text-center"> Tem certeza que deseja excluir sua conta?</p>
+                <div class="center text-center">
+                    <button type="submit" class="button-green form-btn">Confirmar</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+{% endblock conteudo %}

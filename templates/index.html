@@ -1,131 +1,182 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block complemento %} 
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+{% endblock complemento %}
+
+{% block titulo %} Página inicial {% endblock titulo %}
+        
 {% block conteudo %}
     {{ categorias|json_script:'categorias' }}
     {{ ids|json_script:'ids' }}
     <script type="text/javascript" src="{% static 'js/categorias.js' %}"></script>
 
     <body onload="CategoriaAnimal();">
-        <div class="poster">
-            <div class="row-poster">
-                <div class="texto-poster">
-                    <h1>Seja bem vindo!</h1>
-                </div>
-                <div class="img-poster">
-                    <img src="{% static 'imagens/img-pet2.png' %}" alt="Borda foto criado por freepik ">
-                </div>
-            </div>
-        </div>
-        <div class="filtro">
-            <div class="filtro-left">
-                <form method="POST" >
-                    {% csrf_token %}
-                    <input type="text" name="nome" value="{{nome}}" placeholder="Nome do animal">
-                    <input type="text" name="cidade" value="{{cidade}}" placeholder="Cidade">
+        <section class="banner">
+			<div class="overlay"></div>
+			<div class="container chamada-banner">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<h1> Auline </h1>
+						<h3 class="white"> Ajude esses animaizinhos a acharem um lar </h3>
+						<a href="https://www.auline.co/about" class="button-green"> Saiba Mais! </a>
+					</div>
+				</div>
+			</div>
+		</section>
 
-                    <select name="porte" >
-                        <option value="{{porte}}">{{porte}}</option> 
-                        <option value="PE">Pequeno</option> 
-                        <option value="ME">Médio</option> 
-                        <option value="GR">Grande</option> 
-                    </select>
-                    <select name="categoria_filtro" >
-                        <option value="{{categoria_filtro}}">------</option> 
-                        <option value="PA">Para Adoção</option> 
-                        <option value="P">Perdido</option> 
-                        <option value="E">Encontrado</option> 
-                    </select>
-                    <select name="sexo">
-                        <option value="{{sexo}}">{{sexo}}</option> 
-                        <option value="M">Macho</option> 
-                        <option value="F">Fêmea</option> 
-                    </select>
-                    <button type="submit" class = "btn btn-outline-info btn-filtro">Filtrar</button>        
-                </form>
-            </div>
+		<section class="filter">
+			<div class="container">
+				<div class="row">
 
-            <div class="filtro-right">
-                <div class="text-filtro">
-                    <h2>Encontre</h2>
-                    <h2>seu AUmigo!</h2>
-                </div>
-                <div class="img-filtro">
-                    <img class="seta-filtro" src="{% static 'imagens/seta.png' %}" alt="Seta para o filtro">
-                </div>
-            </div>
-        </div> 
-        
-        <div class="container-pub">
-            <div class="legenda">
-                <div class="legenda-categoria">
-                    
-                    <div class="campo-categoria"></div>
-                    <div class="campo-categoria"></div>
-                    <div class="campo-categoria"></div>
-                </div>
-                <div class="legenda-categoria">
-                    <div class="campo-categoria"></div>
-                    <div class="campo-categoria"></div>
-                    <div class="campo-categoria"></div>
-                </div>
-                <div class="legenda-categoria">
-                    <div class="campo-categoria"></div>
-                    <div class="campo-categoria"></div>
-                </div>
-            </div>
-            <div class="row-pub">
-                {% for animal in animais %}   
-                    <div class="card">
-                        
-                        <a href="{% url 'perfil-animal' animal.id %}">
-                            <img class="card-img-top" src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
-                        </a>
-                        <div class="card-body">
-                            <div class="info-nome">
-                                {{animal.nome}}
-                            </div>
+					<div class="col-md-4">
+						<h1 class="title white text-center"> ENCONTRE SEU AMIGO </h1>
+					</div>
 
-                            <div class="info-local">
-                                <span>{{animal.cidade}}/{{animal.estado}}</span>
-                            </div>
+					<div class="col-md-8">
+						<form method="POST">
+							<div class="form-row">
+								<div class="form-group col-md-6">
+								<label class="title-input">Nome</label> <br>
+								<input type="text" class="input-filter" placeholder="Nome">
+								</div>
+								<div class="form-group col-md-6">
+									<label class="title-input" >Cidade</label> <br>
+									<input type="text" class="input-filter" placeholder="Cidade">
+								</div>
+								<div class="form-group col-md-6">
+									<label class="title-input" >Categoria</label> <br>
+									<select class="input-filter">
+										<option value="">Perdido</option>
+										<option value="">Para adoção</option>
+										<option value="">Encontrado</option>
+									</select>
+								</div>
+								<div class="form-group col-md-6">
+									<label class="title-input" >Porte</label> <br>
+									<select class="input-filter">
+										<option value="">Pequeno</option>
+										<option value="">Médio</option>
+										<option value="">Grande</option>
+									</select>
+								</div>
+								<div class="form-group col-md-6">
+									<label class="title-input" >Sexo</label> <br>
+									<select class="input-filter">
+										<option value="">Macho</option>
+										<option value="">Fêmea</option>
+									</select>
+								</div>
+								<div class="form-group col-md-6">
+									<label class="title-input" >Tipo</label> <br>
+									<select class="input-filter">
+										<option value="">Cachorro</option>
+										<option value="">Gato</option>
+									</select>
+								</div>
+								<div class="col-md-6"></div>
+								<div class="col-md-6">
+									<button type="submit" class="button-green">Filtrar</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="publications">
+			<div class="waves">
+				<img src="{% static 'images/svg/wavesOpacity.svg'%}" alt="">
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1 class="title green">RECÉM CHEGADOS</h1>
+					</div>
+					<div class="col-md-4">
+						<div class="card" style="width: 18rem;">
+							
+							<img src="{% static 'images/dog.jpg'%}" class="card-img-top" alt="animal">
+							<a href="" class="overlay-green white" > 
+								<img src="{% static 'images/svg/search.svg'%}" class="icon" alt="search">
+							</a>
+							<div class="card-body">
+								<h5 class="black">Rex</h5>
+								<p class="black text-opacity localization">Guanambi</p>
+								<div class="block-info">
+									<div class="info" style="background-color: red" data-toggle="tooltip" data-placement="top" title="Perdido">
+										<p class="white">P</p>
+									</div>
+									<div class="info size" data-toggle="tooltip" data-placement="top" title="Médio">
+										<p class="white">M</p>
+									</div>
+									<div class="info sex-male" data-toggle="tooltip" data-placement="top" title="Macho">
+										<p class="white">M</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-12">
+						<a href="" class="button-green white">Ver mais (44)</a>
+					</div>
+				</div>
+			</div>
+		</section>
 
-                            <div class="info-carac">
-                                <div class="carac" id="{{animal.id}}">
-                                    <p>{{animal.categoria}}</p>
-                                </div>
-                                <div class="carac" style="background-color: #FF914D;">
-                                    <p>{{ animal.porte }}</p>
-                                </div>
-                                {% if animal.sexo == 'M' %}
-                                    <div class="carac" style="background-color: #2a36d4;">
-                                        <p>{{ animal.sexo }}</p>
-                                    </div>
-                                {% else %}
-                                <div class="carac" style="background-color: #ca26bc;">
-                                    <p>{{ animal.sexo }}</p>
-                                </div>
-                                {% endif %}
+		<div class="waves">
+			<img src="{% static 'images/svg/wavesOpacity2.svg'%}" alt="">
+		</div>
 
-                            </div> 
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>  
-            <div class="paginacao">
-                <span class="step-links">
-                    {% if animais.has_previous %}
-                        <a href="?page=1"><button class="btn-pagination"><<</button></a>
-                        <a href="?page={{animais.previous_page_number}}"><button class="btn-pagination"><</button></a>
-                    {% endif %}
-                    <span class="current">
-                        {{ animais.number }} de {{ animais.paginator.num_pages }}
-                    </span>
-                    {% if animais.has_next %}
-                        <a href="?page={{animais.next_page_number}}"><button class="btn-pagination">></button></a>
-                        <a href="?page={{animais.paginator.num_pages}}"><button class="btn-pagination">>></button></a>
-                    {% endif %}
-                </span>
-            </div>
-        </div>        
+		<section class="help center">
+			
+			<h1 class="title green text-center">COMO POSSO AJUDAR?</h1>
+			<div class="container">
+				<div class="cards">
+					
+					<div class="infocard">
+						<a href="">
+							<span color="icon"><img src="{% static 'images/svg/donate.svg'%}" class="icon" alt="doar"></span>
+							<h2 class="green">Doe</h2>
+							<p class="gray">
+								Nos ajude fazendo doação de rações, produtos de higiene ou até 
+								mesmo em dinheiro
+							</p>
+						</a>
+					</div>
+							
+					<div class="infocard">
+						<a href="">
+							<span color="icon"><img src="{% static 'images/svg/home.svg'%}" class="icon" alt="doar"></span>
+							<h2 class="green">Adote</h2>
+							<p class="gray">
+								Adote o bichinho que mais tocou o seu coração s2
+							</p>
+						</a>
+					</div>
+							
+					<div class="infocard">
+						<a href="">
+							<span color="icon"><img src="{% static 'images/svg/share.svg'%}" class="icon" alt="doar"></span>
+							<h2 class="green">Compartilhe</h2>
+							<p class="gray">
+								Compartilhe nossa página para que mais pessoas ajudem esses animais
+							</p>
+						</a>
+					</div>
+				</div>
+			</div>
+			
+			
+		</section>
+		
+		<footer >
+			<div class="container">
+				<p class="white text-opacity">© 2020 AUline, Inc.</p>   
+				<a href="{% url 'entre-em-contato' %}" class="white">Entre em contato</a> 
+			</div>
+		</footer>
     </body> 
 {% endblock conteudo %}

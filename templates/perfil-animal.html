@@ -2,36 +2,80 @@
 {% load static %}
 
 {% block complemento %} 
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
-    <link rel="stylesheet" href="{% static 'css/perfil-animal.css' %}">
-
+    <link rel="stylesheet" href="{% static 'css/animal-profile.css' %}">
 {% endblock complemento %}
+
+{% block titulo %} Rex {% endblock titulo %}
 
 {% block conteudo %}
     {{ endereco|json_script:'endereco' }}
     <script type="text/javascript" src="{% static 'js/mapa.js' %}"></script>
     <body onload="main()">
-        <div class="container">
-            <div class="row">
-                <img class="img-animal" src="../../media/{{animal.imagem}}" alt="{{animal.nome}}">
+        <section class="animal-info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="assets/images/img-profile.jpg" class="img-profile" alt="Rex">
+                    </div>
+                    <div class="col-md-6 block-info">
+                        <h1 class="title green"> REX </h1>
+                        <div class="desc justify">
+                            <p class="gray">
+                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
+                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
+                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
+                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
+                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
+                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
+                            </p>
+                            
+                        </div>
+                        <div class="specific" >
+                            <ul>
+                                <li class="gray"><span class="black"> Sexo: </span> Fêmea</li>
+                                <li class="gray"><span class="black"> Porte: </span> Pequeno </li>
+                                <li class="gray"><span class="black"> Raça: </span> Golden Retriever </li>
+                                <li class="gray"><span class="black"> Idade: </span> 5 anos </li>
+                            </ul>
+
+                            <div class="carac">
+                                <h6 class="black"> Características </h6>
+                                <p class="gray justify">
+                                    Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="block-health">
+                            <div class="health healthy">
+                                <img src="{% static 'images/svg/yes.svg' %}" alt="Yes">
+                                <h6 class="white">Vacinado</h6>
+                            </div>
+                            <div class="health healthy">
+                                <img src="{% static 'images/svg/yes.svg' %}" alt="Yes">
+                                <h6 class="white">Vermifugado</h6>
+                            </div>
+                            <div class="health not-healthy">
+                                <img src="{% static 'images/svg/no.svg' %}" alt="No">
+                                <h6 class="white">Castrado</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="conteudo"></div>
+        </section>
 
-            <form method="post">
-                {% csrf_token %}
-                {{form.conteudo}}
-                <button type="submit"> Comentar </button>
-            </form>
-
-            {% for comentario in comentarios %}
-                {% if comentario.aprovado == True %}
-                    <img src="../../media/{{comentario.avatar}}" alt="{{comentario.autor}}">
-                    <p>{{comentario.autor}}</p>
-                    <p>{{comentario.conteudo}}</p>
-                {% endif %}
-            {% endfor %} 
-        </div>
+        <section class="block-map center">
+            <h1 class="title green">ONDE POSSO ENCONTRÁ-LO?</h1>
+            <div class="map">
+                Mapa
+            </div>
+        </section>
+    
+        <footer>
+            <div class="container">
+                <p class="white text-opacity">© 2020 AUline, Inc.</p>   
+                <a href="{% url 'entre-em-contato' %}" class="white">Entre em contato</a> 
+            </div>
+        </footer>
     </body>
 {% endblock conteudo %}

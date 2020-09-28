@@ -1,20 +1,37 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block complemento %} 
+    <link rel="stylesheet" href="{% static 'css/form.css'%}">
+{% endblock complemento %}
+
+{% block titulo %} Login {% endblock titulo %}
 
 {% block conteudo %}
-    <h4 class="card-tittle text-center">Login</h4>
-    <form method="POST" class="form">
-        {% csrf_token %}
-        <br>
-        <input type="text" name="email" placeholder="Email" class="form-control">
-        <br>
-        <input type="password" name="password" placeholder="Senha" class="form-control">
-        <br>
-        <button type="submit" class="btn btn-primary btn-block">Logar</button>
-        <div class="form-links">
-            <a href="">Esqueceu sua senha?</a>
-            <a href="{% url 'cadastro' %}">Não tem uma conta? Clique aqui :)</a>
-        </div>
-    </form> 
+        
+    <section class="form-main">
+        <form method="POST">
+            {% csrf_token %}
+            <h1 class="green title">LOGIN</h1>
+            <p class="description"> Faça login na nossa página e aproveite :)</p>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label class="form-title gray">E-mail</label> <br>
+                    <input type="text" class="form-input" placeholder="E-mail">
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="form-title gray" >Senha</label> <br>
+                    <input type="text" class="form-input" placeholder="******">
+                </div>
+                <div class="center text-center">
+                    <button type="submit" class="button-green form-btn">Logar</button>
+                    <p class="text-opacity">
+                        Não possui um cadastro?<a href="{% url 'cadastro' %}"> Cadastre-se</a>
+                    </p>
+                </div>
+            </div>
+        </form>
+    </section>
 
 
 {% endblock conteudo %}

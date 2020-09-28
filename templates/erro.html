@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block complemento %} 
+    <link rel="stylesheet" href="{% static 'css/form.css'%}">
+{% endblock complemento %}
+
+{% block titulo %} Página inicial {% endblock titulo %}
+        
+{% block conteudo %}
+    <section class="form-main">
+        <img class="img-error" src="{% static 'images/svg/error.svg'%}" alt="Erro">
+    </section>
+{% endblock conteudo %}

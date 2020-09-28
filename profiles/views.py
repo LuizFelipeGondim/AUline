@@ -50,16 +50,6 @@ def alterar(request, id):
     return render(request,'alterar-informacoes.html', contexto)
 
 @login_required
-def informacoes(request):
-    usuario = User.objects.get(id=request.user.id)
-    perfil_usuario = Perfil.objects.filter(usuario=request.user.id).first
-    contexto = {
-        'usuario':usuario,
-        'perfil_usuario':perfil_usuario,
-    }
-    return render(request, 'informacoes-pessoais.html', contexto)
-
-@login_required
 def excluir_animal(request, id_animal):
     animal = Animal.objects.get(id=id_animal)
     animal.delete()

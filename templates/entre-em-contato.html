@@ -1,20 +1,36 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block complemento %} 
+    <link rel="stylesheet" href="{% static 'css/form.css'%}">
+{% endblock complemento %}
+
+{% block titulo %} Entre em contato {% endblock titulo %}
 
 {% block conteudo %}
-    <div class="container">
-        <div class="row">
-            <form method="post" class="form">
-                <h1 class="h3 mb-3 "> Entre em Contato </h1>
-                {% csrf_token %}
-                <label class="label-form"> Nome(Opcional) </label>
-                {{form.nome}}
-                <label class="label-form"> E-mail </label>
-                {{form.email}}
-                <label class="label-form"> Como podemos ajudá-lo? </label>
-                {{form.conteudo}}    
-                
-                <button type="submit" class="btn btn-primary"> Enviar </button>
-            </form>
+<section class="form-main">
+    <form method="POST">
+        <h1 class="green title">CONTATO</h1>
+        <p class="description"> Entre em contato conosco</p>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label class="form-title gray">Nome (opcional)</label> <br>
+                <input type="text" class="form-input" placeholder="Anônimo">
+            </div>
+            <div class="form-group col-md-12">
+                <label class="form-title gray" >E-mail</label> <br>
+                <input type="email" class="form-input" placeholder="Digite seu melhor e-mail">
+            </div>
+            <div class="form-group col-md-12">
+                <label class="form-title gray" >Como podemos ajudar?</label>
+                <textarea cols="30" rows="4"class="form-textarea" placeholder="Eu cadastrei porque...">
+                </textarea>
+            </div>
+            <div class="center text-center">
+                <button type="submit" class="button-green form-btn">Enviar</button>
+            </div>
         </div>
-    </div>
+    </form>
+</section>
+
 {% endblock conteudo %}

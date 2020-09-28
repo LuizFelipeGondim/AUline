@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block complemento %} 
+    <link rel="stylesheet" href="{% static 'donate/home.css'%}">
+{% endblock complemento %}
+
+{% block titulo %} Doe {% endblock titulo %}
+        
+{% block conteudo %}
+    <section class="donate">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{% static 'images/dog-donate.png'%}" class="dog-donate" alt="Doe">
+                </div>
+                <div class="col-md-8">
+                    <div class="triangle"></div>
+                    <div class="text">
+                        <p class="gray justify">
+                            Nos ajude fazendo uma doação em dinheiro pelo site 
+                            <a href="https://www.vakinha.com.br/"> VAKINHA </a> 
+                            ou doe produtos de higiene, alimentação ou até mesmo brinquedos. Utilize os 
+                            endereços abaixo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="address">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <h1 class="title white text-center"> DOE TAMBÉM NESSES ENDEREÇOS </h1>
+                </div>
+
+                <div class="col-md-8" >
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'images/img-address.jpg'%}" alt="ONG">
+                        <div class="card-body text-center">
+                            <h4 class="green">Unianjos</h4>
+                            <p class="gray">
+                                ONG sem fins lucrativos
+                            </p>
+                        </div>
+                        
+                    </div>
+                    <div class="card" >
+                        <img class="card-img-top" src="{% static 'images/img-address.jpg'%}" alt="ONG">
+                        <div class="card-body text-center">
+                            <h4 class="green">Unianjos</h4>
+                            <p class="gray">
+                                ONG sem fins lucrativos
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card" >
+                        <img class="card-img-top" src="{% static 'images/img-address.jpg'%}" alt="ONG">
+                        <div class="card-body text-center">
+                            <h4 class="green">Unianjos</h4>
+                            <p class="gray">
+                                ONG sem fins lucrativos
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="white text-opacity">© 2020 AUline, Inc.</p>   
+            <a href="{% url 'entre-em-contato' %}" class="white">Entre em contato</a> 
+        </div>
+    </footer>
+{% endblock conteudo %}

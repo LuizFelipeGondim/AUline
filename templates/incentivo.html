@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block complemento %} 
+    <link rel="stylesheet" href="{% static 'css/donate-box.css'%}">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+    <link rel="stylesheet" href="{% static 'css/incentive.css'%}">
+{% endblock complemento %}
+
+{% block titulo %} Incentivo {% endblock titulo %}
+        
+{% block conteudo %}
+    <section class="banner">
+        <div class="overlay"></div>
+        <div class="container chamada-banner">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1> Vídeo </h1>
+                </div><!-- col-md-12 -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </section>
+
+    <section class="text-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 adopt-box">
+                    <div class="box center-text" style="background-color: #ffffff;">
+                        <h1 class="title green">ADOTE!</h1>
+                        <p class="gray justify">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, 
+                            consectetur, adipisci velit, Neque porro quisquam. Neque porro quisquam est qui 
+                            dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, Neque porro 
+                            quisquam. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, 
+                            consectetur, adipisci velit, Neque porro quisquam. 
+                        </p>
+                    </div>
+                    <div class="box center">
+                        <img src="{% static 'images/svg/adopt.svg'%}" alt="">
+                    </div>
+                </div>
+                <div class="col-md-12 donate-box">
+                    <div class="box center">
+                        <img src="{% static 'images/svg/donate-img.svg'%}" alt="">
+                    </div>
+                    <div class="box center-text" style="background-color: #ffffff;">
+                        <h1 class="title green">DOE E AJUDE UM PET</h1>
+                        <p class="gray justify">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, 
+                            consectetur, adipisci velit, Neque porro quisquam. Neque porro quisquam est qui 
+                            dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, Neque porro 
+                            quisquam. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, 
+                            consectetur, adipisci velit, Neque porro quisquam. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="address">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <h1 class="title white text-center"> ADOTE NESSES LOCAIS </h1>
+                </div>
+
+                <div class="col-md-8" >
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'images/img-address.jpg'%}" alt="ONG">
+                        <div class="card-body text-center">
+                            <h4 class="green">Unianjos</h4>
+                            <p class="gray">
+                                ONG sem fins lucrativos
+                            </p>
+                        </div>
+                        
+                    </div>
+                    <div class="card" >
+                        <img class="card-img-top" src="{% static 'images/img-address.jpg'%}" alt="ONG">
+                        <div class="card-body text-center">
+                            <h4 class="green">Unianjos</h4>
+                            <p class="gray">
+                                ONG sem fins lucrativos
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card" >
+                        <img class="card-img-top" src="{% static 'images/img-address.jpg'%}" alt="ONG">
+                        <div class="card-body text-center">
+                            <h4 class="green">Unianjos</h4>
+                            <p class="gray">
+                                ONG sem fins lucrativos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="statement-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="title green">DEPOIMENTOS</h1>
+                </div>
+                <div class="depoiments">
+                    <div class="col-md-12 statement">
+                        <img src="{% static 'images/svg/statements/fernanda.svg'%}" alt="Fernanda">
+                        <div class="text-depoiment">
+                            <h4 class="green">Fernanda</h4>
+                            <p class="gray justify">
+                                “ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. “
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12 statement">
+                        <img src="{% static 'images/svg/statements/carlos.svg'%}" alt="Fernanda">
+                        <div class="text-depoiment">
+                            <h4 class="green">Carlos</h4>
+                            <p class="gray">
+                                “ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. “
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="white text-opacity">© 2020 AUline, Inc.</p>   
+            <a href="{% url 'entre-em-contato' %}" class="white">Entre em contato</a> 
+        </div>
+    </footer>
+{% endblock conteudo %}

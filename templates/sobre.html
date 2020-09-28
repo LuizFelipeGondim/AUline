@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block complemento %} 
+    <link rel="stylesheet" href="{% static 'about/home.css'%}">
+{% endblock complemento %}
+
+{% block titulo %} Sobre nós {% endblock titulo %}
+        
+{% block conteudo %}
+    <header>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+            <!-- Slide One - Set the background image for this slide in the line below -->
+            
+                <div class="carousel-item active" style="background-image: url('assets/images/dog1-carousel.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <div class="desc">
+                            <h2 class="display-4">Sobre nós</h2>
+                            <p class="lead ">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, 
+                                consectetur, adipisci velit, Neque porro quisquam.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+            <!-- Slide Two - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('assets/images/cat-carousel.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <div class="desc">
+                            <h2 class="display-4">Não compre, adote</h2>
+                            <p class="lead">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, 
+                                consectetur, adipisci velit, Neque porro quisquam.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+                <!-- Slide Three - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('assets/images/dog2-carousel.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <div class="desc">
+                            <h2 class="display-4">Procure seu pet</h2>
+                            <p class="lead">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, 
+                                consectetur, adipisci velit, Neque porro quisquam.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="devs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="title green text-center">DESENVOLVEDORES</h1>
+                </div>
+
+                <div class="col-md-12 center">
+                    <div class="cards">
+                        <div class="dev text-center">
+                            <img src="assets/images/svg/devs/ana.svg" alt="Ana">
+                            <h4 class="black" >Ana Carolina</h4>
+                            <h5 class="gray" >Desenvolvedora / Designer</h5>
+                            <p class="gray">
+                                “Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
+                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.” 
+                            </p>
+                        </div>
+                        <div class="dev text-center">
+                            <img src="assets/images/svg/devs/emanuela.svg" alt="Emanuela">
+                            <h4 class="black" >Emanuela</h4>
+                            <h5 class="gray" >Desenvolvedora / Designer</h5>
+                            <p class="gray">
+                                “Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
+                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.” 
+                            </p>
+                        </div>
+                        <div class="dev text-center">
+                            <img src="assets/images/svg/devs/guilherme.svg" alt="Guilherme">
+                            <h4 class="black" >Guilherme</h4>
+                            <h5 class="gray" >Desenvolvedor / Designer</h5>
+                            <p class="gray">
+                                “Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
+                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.” 
+                            </p>
+                        </div>
+                        <div class="dev text-center">
+                            <img src="assets/images/svg/devs/lucas.svg" alt="Lucas Emanuel">
+                            <h4 class="black" >Lucas Emanuel</h4>
+                            <h5 class="gray" >Desenvolvedor / Designer</h5>
+                            <p class="gray">
+                                “Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
+                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.” 
+                            </p>
+                        </div>
+                        <div class="dev text-center">
+                            <img src="assets/images/svg/devs/luiz.svg" alt="Luiz">
+                            <h4 class="black" >Luiz Felipe</h4>
+                            <h5 class="gray" >Desenvolvedor / Designer</h5>
+                            <p class="gray">
+                                “Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
+                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.” 
+                            </p>
+                        </div>
+                        <div class="dev text-center">
+                            <img src="assets/images/svg/devs/vitoria.svg" alt="Vitória">
+                            <h4 class="black" >Vitória</h4>
+                            <h5 class="gray" >Desenvolvedora / Designer</h5>
+                            <p class="gray">
+                                “Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
+                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.” 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="support">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="title green">APOIO</h1>
+                </div>
+                <div class="col-md-12 supporters">
+                    <div class="supporter center">
+                        <img src="assets/images/svg/supporters/ong-pet.svg" alt="ONG Pet">
+                        <h4 class="black">ONG Pet</h4>
+                        <h5 class="gray" >ONG</h5>
+                    </div>
+                    <div class="supporter center">
+                        <img src="assets/images/svg/supporters/eber.svg" alt="Éber">
+                        <h4 class="black">Éber Chagas</h4>
+                        <h5 class="gray" >Orientador</h5>
+                    </div>
+                    <div class="supporter center">
+                        <img src="assets/images/svg/supporters/pet-ong.svg" alt="Pet ONG">
+                        <h4 class="black">Pet ONG</h4>
+                        <h5 class="gray" >ONG</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer >
+        <div class="container">
+            <p class="white text-opacity">© 2020 AUline, Inc.</p>   
+            <a href="{% url 'entre-em-contato' %}" class="white">Entre em contato</a> 
+        </div>
+    </footer>
+
+{% endblock conteudo %}
