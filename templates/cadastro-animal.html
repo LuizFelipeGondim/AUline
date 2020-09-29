@@ -8,14 +8,9 @@
 {% block titulo %} Cadastrar animal {% endblock titulo %}
 
 {% block conteudo %}
-    <form method="POST" >
-        
-        <button type="submit">Cadastrar</button>
-    </form>
     <section class="form-main">
         <form method="POST" enctype='multipart/form-data' class="form-long">
             {% csrf_token %}
-            {{ form.as_p }}
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -27,107 +22,73 @@
 
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Categoria</label> <br>
-                                <select class="form-input">
-                                    <option value="">Perdido</option>
-                                    <option value="">Para adoção</option>
-                                </select>
+                                {{ form.categoria }}
                             </div>
 
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Estado</label> <br>
-                                <select class="form-input">
-                                    <option value="">Bahia</option>
-                                    <option value="">Minas Gerais</option>
-                                    <option value="">...</option>
-                                </select>
+                                {{ form.estado }}
                             </div>
                             
                             <div class="form-group col-md-6" style="margin-top:-4px;">
                                 <label class="form-title gray">Nome</label> <br>
-                                <input type="text" class="form-input" placeholder="Nome">
+                                {{ form.nome }}
                             </div>
 
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Cidade</label> <br>
-                                <select class="form-input">
-                                    <option value="">Guanambi</option>
-                                    <option value="">Monte Alto</option>
-                                    <option value="">...</option>
-                                </select>
+                                {{ form.cidade }}
                             </div>
 
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Tipo</label> <br>
-                                <select class="form-input">
-                                    <option value="">Cachorro</option>
-                                    <option value="">Gato</option>
-                                </select>
+                                {{ form.tipo_animal }}
                             </div>
 
                             <div class="form-group col-md-6" style="margin-top:-4px;">
                                 <label class="form-title gray">Rua</label> <br>
-                                <input type="text" class="form-input" placeholder="Rua onde foi visto pela última vez">
+                                {{ form.rua }}
                             </div>
                             
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Porte</label> <br>
-                                <select class="form-input">
-                                    <option value="">Pequeno</option>
-                                    <option value="">Médio</option>
-                                    <option value="">Grande</option>
-                                </select>
+                                {{ form.porte }}
                             </div>
                             
                             <div class="form-group col-md-6" style="margin-top:-4px;">
                                 <label class="form-title gray">Raça</label> <br>
-                                <input type="text" class="form-input" placeholder="Vira-lata">
+                                {{ form.raca }}
                             </div>
                             
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Sexo</label> <br>
-                                <select class="form-input">
-                                    <option value="">Macho</option>
-                                    <option value="">Fêmea</option>
-                                </select>
+                                {{ form.sexo }}
                             </div>
                             
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Vacinado</label> <br>
-                                <select class="form-input">
-                                    <option value="">Não informado</option>
-                                    <option value="">Sim</option>
-                                    <option value="">Não</option>
-                                </select>
+                                {{ form.vacinado }}
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Castrado</label> <br>
-                                <select class="form-input">
-                                    <option value="">Não informado</option>
-                                    <option value="">Sim</option>
-                                    <option value="">Não</option>
-                                </select>
+                                {{ form.castrado }}
                             </div>
                             
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Vermifugado</label> <br>
-                                <select class="form-input">
-                                    <option value="">Não informado</option>
-                                    <option value="">Sim</option>
-                                    <option value="">Não</option>
-                                </select>
+                                {{ form.vermifugado }}
                             </div>
 
                             <div class="form-group col-md-6" style="margin-top:-4px;">
                                 <label class="form-title gray">Imagem</label> <br>
-                                <input type="text" class="form-input" placeholder="Campo temporário">
+                                {{ form.imagem }}
                             </div>
                             
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Características</label> <br>
-                                <textarea cols="30" rows="6"class="form-textarea" placeholder="Características do animal">
-                                </textarea>
+                                {{ form.caracteristicas }}
                             </div>
-                            
+                            {{ form.errors }}                            
                         </div>
                     </div>
                     <div class="center text-center">

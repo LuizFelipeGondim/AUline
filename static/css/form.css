@@ -71,6 +71,12 @@ form .form-textarea::placeholder{
     border: 1px solid #64E5F8;
 }
 
+/* image */
+
+.form-image{
+    max-width: 230px;
+}
+
 /* button */
 
 .form-btn{

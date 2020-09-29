@@ -10,11 +10,20 @@ class AnimalForm(ModelForm):
         'motivo']
 
         widgets = {
-            'nome': forms.TextInput(attrs={'class':'form-control'}),
-            'caracteristicas': forms.Textarea(attrs={"rows":5, "cols":20}),
-            'cidade': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Cidade atual do animal'}),
-            'rua': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Rua onde foi visto pela última vez'}),
-            'estado': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Estado atual do animal'}),
-            'raca': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Informe a raça'}),
-            'motivo': forms.Textarea(attrs={'class':'form-control', 'placeholder':'Informe o motivo'}),
+            'categoria': forms.Select(attrs={'class':'form-input'}),
+            'tipo_animal': forms.Select(attrs={'class':'form-input'}),
+            'porte': forms.Select(attrs={'class':'form-input'}),
+            'sexo': forms.Select(attrs={'class':'form-input'}),
+            'vacinado': forms.Select(attrs={'class':'form-input'}),
+            'vermifugado': forms.Select(attrs={'class':'form-input'}),
+            'castrado': forms.Select(attrs={'class':'form-input'}),
+            'nome': forms.TextInput(attrs={'class':'form-input'}),
+            'caracteristicas': forms.Textarea(attrs={"rows":5, "cols":40, 'class':'form-textarea'} ),
+            'cidade': forms.TextInput(attrs={'class':'form-input', 'placeholder':'Cidade atual do animal'}),
+            'rua': forms.TextInput(attrs={'class':'form-input', 'placeholder':'Rua onde foi visto pela última vez'}),
+            'estado': forms.TextInput(attrs={'class':'form-input', 'placeholder':'Estado atual do animal'}),
+            'raca': forms.TextInput(attrs={'class':'form-input', 'placeholder':'Informe a raça'}),
+            'motivo': forms.Textarea(attrs={'class':'form-input', 'placeholder':'Informe o motivo'}),
+            'imagem': forms.FileInput(attrs={'class':'form-input'}),
+            
         }
