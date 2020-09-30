@@ -17,8 +17,6 @@ def lista_animal(request):
     porte = ''
     cidade = ''
     
-    perfil_usuarios = Perfil.objects.all()
-    usuarios = User.objects.all()
     lista_de_animais = Animal.objects.all()
 
     #filtro de animais
@@ -60,8 +58,6 @@ def lista_animal(request):
         'sexo':sexo,
         'porte':porte,
         'animais': animais,
-        'perfil_usuarios':perfil_usuarios,
-        'usuarios':usuarios,
         'categorias': categorias,
         'ids': ids,
     }

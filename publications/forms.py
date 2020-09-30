@@ -18,7 +18,7 @@ class AnimalForm(ModelForm):
             'vermifugado': forms.Select(attrs={'class':'form-input'}),
             'castrado': forms.Select(attrs={'class':'form-input'}),
             'nome': forms.TextInput(attrs={'class':'form-input'}),
-            'caracteristicas': forms.Textarea(attrs={"rows":5, "cols":40, 'class':'form-textarea'} ),
+            'caracteristicas': forms.Textarea(attrs={'rows':5, 'cols':40, 'class':'form-textarea'} ),
             'cidade': forms.TextInput(attrs={'class':'form-input', 'placeholder':'Cidade atual do animal'}),
             'rua': forms.TextInput(attrs={'class':'form-input', 'placeholder':'Rua onde foi visto pela última vez'}),
             'estado': forms.TextInput(attrs={'class':'form-input', 'placeholder':'Estado atual do animal'}),

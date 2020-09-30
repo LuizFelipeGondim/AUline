@@ -9,6 +9,8 @@ function CategoriaAnimal(){
             document.getElementById(ids[i]).style.background="#ed8787";
         } else if (categorias[ids[i]] == 'PA'){
             document.getElementById(ids[i]).style.background="#3fbcdb";
+        } else if (categorias[ids[i]] == 'A'){
+            document.getElementById(ids[i]).style.background="#9b228b";
         }
     }
     

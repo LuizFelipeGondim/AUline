@@ -18,8 +18,9 @@ section.form-main form{
     width: 80%;
     background-color: #ffffff;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 5px;
     margin: 20px 0px;
+    box-shadow: 8px 7px 5px -3px #e4e4e4;
 }
 
 form.form-long{
@@ -69,6 +70,10 @@ form .form-textarea::placeholder{
 
 .form-textarea:focus{
     border: 1px solid #64E5F8;
+}
+
+.form-input:active{
+    background-color: #ffffff !important;
 }
 
 /* image */
