@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/animal-profile.css' %}">
 {% endblock complemento %}
 
-{% block titulo %} Rex {% endblock titulo %}
+{% block titulo %} {{animal.nome}} {% endblock titulo %}
 
 {% block conteudo %}
     {{ endereco|json_script:'endereco' }}
