@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{% static 'css/profile.css'%}">
 {% endblock complemento %}
 
-{% block titulo %} Perfil | Luiz {% endblock titulo %}
+{% block titulo %} Perfil | {{usuario.first_name}} {% endblock titulo %}
 
 {% block conteudo %}
     {{ categorias|json_script:'categorias' }}
@@ -98,34 +98,34 @@
                                                         <p class="white">{{animal.categoria}}</p>
                                                     </div>
                                                 {% endif %}
-                                                {% if animal.porte == 'PE' %}
+                                                {% if animal.porte == 'Pequeno' %}
                                                     <div class="info size" data-toggle="tooltip" data-placement="top" title="Pequeno">
-                                                        <p class="white">{{animal.porte}}</p>
+                                                        <p class="white">PE</p>
                                                     </div>
                                                 {% endif %}
-                                                {% if animal.porte == 'ME' %}
+                                                {% if animal.porte == 'Médio' %}
                                                     <div class="info size" data-toggle="tooltip" data-placement="top" title="Médio">
-                                                        <p class="white">{{animal.porte}}</p>
+                                                        <p class="white">ME</p>
                                                     </div>
                                                 {% endif %}
-                                                {% if animal.porte == 'GR' %}
+                                                {% if animal.porte == 'Grande' %}
                                                     <div class="info size" data-toggle="tooltip" data-placement="top" title="Grande">
-                                                        <p class="white">{{animal.porte}}</p>
+                                                        <p class="white">GR</p>
                                                     </div>
                                                 {% endif %}
-                                                {% if animal.sexo == 'M' %}
+                                                {% if animal.sexo == 'Macho' %}
                                                     <div class="info sex-male" data-toggle="tooltip" data-placement="top" title="Macho">
-                                                        <p class="white">{{animal.sexo}}</p>
+                                                        <p class="white">M</p>
                                                     </div>
                                                 {% endif %}
-                                                {% if animal.sexo == 'F' %}
+                                                {% if animal.sexo == 'Fêmea' %}
                                                     <div class="info sex-female" data-toggle="tooltip" data-placement="top" title="Fêmea">
-                                                        <p class="white">{{animal.sexo}}</p>
+                                                        <p class="white">F</p>
                                                     </div>
                                                 {% endif %}
-                                                {% if animal.sexo == 'SE' %}
-                                                    <div class="info" data-toggle="tooltip" data-placement="top" title="Não informado" style="background-color: rgb(217, 221, 0);">
-                                                        <p class="white">{{animal.sexo}}</p>
+                                                {% if animal.sexo == 'Sexo Desconhecido' %}
+                                                    <div class="info" data-toggle="tooltip" data-placement="top" title="Sexo desconhecido" style="background-color: rgb(217, 221, 0);">
+                                                        <p class="white">SD</p>
                                                     </div>
                                                 {% endif %}
                                             </div>

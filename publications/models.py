@@ -18,9 +18,9 @@ class Animal(models.Model):
     )
 
     PORTE = (
-        ('PE', 'Pequeno'),
-        ('ME', 'Médio'),
-        ('GR', 'Grande'),
+        ('Pequeno', 'Pequeno'),
+        ('Médio', 'Médio'),
+        ('Grande', 'Grande'),
     )
 
     ESCOLHAS = (
@@ -44,14 +44,16 @@ class Animal(models.Model):
     imagem = models.ImageField('Imagem', upload_to='posts', default='posts/unknown_animal.png')
     categoria = models.CharField('Categoria', max_length=15, choices=ESTADOS)
 
-    sexo = models.CharField('Sexo', max_length=18, choices=SEXO, blank=True)
+    sexo = models.CharField('Sexo', max_length=18, choices=SEXO, default='Sexo Desconhecido')
     porte = models.CharField('Porte', max_length=8, choices=PORTE)
 
-    vacinado = models.CharField('Vacinado', choices=ESCOLHAS, max_length=20)
-    vermifugado = models.CharField('Vermifugado', choices=ESCOLHAS, max_length=20)
-    castrado = models.CharField('Castrado', choices=ESCOLHAS, max_length=20)
+    vacinado = models.CharField('Vacinado', choices=ESCOLHAS, max_length=20, default='NI')
+    vermifugado = models.CharField('Vermifugado', choices=ESCOLHAS, max_length=20, default='NI')
+    castrado = models.CharField('Castrado', choices=ESCOLHAS, max_length=20, default='NI')
 
     tipo_animal = models.CharField('Tipo do animal', choices=TIPO_ANIMAL, max_length=20)
+
+    idade = models.CharField('Idade', max_length=40)
 
     estado = models.CharField('Estado', max_length=50, blank=False)
     cidade = models.CharField('Cidade', max_length=50, blank=False)
