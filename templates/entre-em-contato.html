@@ -10,21 +10,25 @@
 {% block conteudo %}
 <section class="form-main">
     <form method="POST">
+        {% csrf_token %}
         <h1 class="green title">CONTATO</h1>
         <p class="description"> Entre em contato conosco</p>
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label class="form-title gray">Nome (opcional)</label> <br>
-                <input type="text" class="form-input" placeholder="Anônimo">
+                {{form.nome}}
             </div>
             <div class="form-group col-md-12">
                 <label class="form-title gray" >E-mail</label> <br>
-                <input type="email" class="form-input" placeholder="Digite seu melhor e-mail">
+                {{form.email}}
+            </div>
+            <div class="form-group col-md-12">
+                <label class="form-title gray" >Assunto do contato</label> <br>
+                {{form.titulo}}
             </div>
             <div class="form-group col-md-12">
                 <label class="form-title gray" >Como podemos ajudar?</label>
-                <textarea cols="30" rows="4"class="form-textarea" placeholder="Eu cadastrei porque...">
-                </textarea>
+                {{form.conteudo}}
             </div>
             <div class="center text-center">
                 <button type="submit" class="button-green form-btn">Enviar</button>
