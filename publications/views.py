@@ -84,7 +84,7 @@ def perfil_animal(request, id):
     animal = Animal.objects.get(id=id)
 
     endereco = animal.rua + ' ' + animal.cidade + ' ' + animal.estado
-
+    print(endereco)
     contexto = {
         'animal':animal,
         'endereco': endereco,

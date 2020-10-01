@@ -2,6 +2,10 @@
 {% load static %}
 
 {% block complemento %} 
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+    </script>
+
     <link rel="stylesheet" href="{% static 'css/animal-profile.css' %}">
 {% endblock complemento %}
 
@@ -15,61 +19,100 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="assets/images/img-profile.jpg" class="img-profile" alt="Rex">
+                        <img src="../../media/{{animal.imagem}}" alt="{{animal.nome}}" class="img-profile">
                     </div>
                     <div class="col-md-6 block-info">
-                        <h1 class="title green"> REX </h1>
+                        <h1 class="title green"> {{animal.nome}} </h1>
                         <div class="desc justify">
                             <p class="gray">
-                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
-                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
-                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
-                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
-                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
-                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
+                                {{animal.motivo}}
                             </p>
                             
                         </div>
                         <div class="specific" >
                             <ul>
-                                <li class="gray"><span class="black"> Sexo: </span> Fêmea</li>
-                                <li class="gray"><span class="black"> Porte: </span> Pequeno </li>
-                                <li class="gray"><span class="black"> Raça: </span> Golden Retriever </li>
+                                <li class="gray"><span class="black"> Sexo: </span> {{animal.sexo}}</li>
+                                <li class="gray"><span class="black"> Porte: </span> {{animal.sexo}} </li>
+                                <li class="gray"><span class="black"> Raça: </span> {{animal.raca}} </li>
                                 <li class="gray"><span class="black"> Idade: </span> 5 anos </li>
                             </ul>
 
                             <div class="carac">
                                 <h6 class="black"> Características </h6>
                                 <p class="gray justify">
-                                    Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. 
+                                    {{animal.caracteristicas}}
                                 </p>
                             </div>
                         </div>
                         <div class="block-health">
-                            <div class="health healthy">
-                                <img src="{% static 'images/svg/yes.svg' %}" alt="Yes">
-                                <h6 class="white">Vacinado</h6>
-                            </div>
-                            <div class="health healthy">
-                                <img src="{% static 'images/svg/yes.svg' %}" alt="Yes">
-                                <h6 class="white">Vermifugado</h6>
-                            </div>
-                            <div class="health not-healthy">
-                                <img src="{% static 'images/svg/no.svg' %}" alt="No">
-                                <h6 class="white">Castrado</h6>
-                            </div>
+                            {% if animal.vacinado == 'S' %}
+                                <div class="health healthy">
+                                    <img src="{% static 'images/svg/yes.svg' %}" alt="Sim">
+                                    <h6 class="white">Vacinado</h6>
+                                </div>
+                            {% endif %}
+                            {% if animal.vacinado == 'N' %}
+                                <div class="health not-healthy">
+                                    <img src="{% static 'images/svg/no.svg' %}" alt="Não">
+                                    <h6 class="white">Vacinado</h6>
+                                </div>
+                            {% endif %}
+                            {% if animal.vacinado == 'NI' %}
+                                <div class="health" style="background-color:#cccccc">
+                                    <img src="{% static 'images/svg/exclamation.svg' %}" alt="Não Informado">
+                                    <h6 class="white">Vacinado</h6>
+                                </div>
+                            {% endif %}
+                            
+                            {% if animal.vermifugado == 'S' %}
+                                <div class="health healthy">
+                                    <img src="{% static 'images/svg/yes.svg' %}" alt="Sim">
+                                    <h6 class="white">Vermifugado</h6>
+                                </div>
+                            {% endif %}
+                            {% if animal.vermifugado == 'N' %}
+                                <div class="health not-healthy">
+                                    <img src="{% static 'images/svg/no.svg' %}" alt="Não">
+                                    <h6 class="white">Vermifugado</h6>
+                                </div>
+                            {% endif %}
+                            {% if animal.vermifugado == 'NI' %}
+                                <div class="health" style="background-color:#cccccc">
+                                    <img src="{% static 'images/svg/exclamation.svg' %}" alt="Não Informado">
+                                    <h6 class="white">Vermifugado</h6>
+                                </div>
+                            {% endif %}
+
+                            {% if animal.castrado == 'S' %}
+                                <div class="health healthy">
+                                    <img src="{% static 'images/svg/yes.svg' %}" alt="Sim">
+                                    <h6 class="white">Castrado</h6>
+                                </div>
+                            {% endif %}
+                            {% if animal.castrado == 'N' %}
+                                <div class="health not-healthy">
+                                    <img src="{% static 'images/svg/no.svg' %}" alt="Não">
+                                    <h6 class="white">Castrado</h6>
+                                </div>
+                            {% endif %}
+                            {% if animal.castrado == 'NI' %}
+                                <div class="health" style="background-color:#cccccc">
+                                    <img src="{% static 'images/svg/exclamation.svg' %}" alt="Não Informado">
+                                    <h6 class="white">Castrado</h6>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="block-map center">
+        <section class="block-map center" >
             <h1 class="title green">ONDE POSSO ENCONTRÁ-LO?</h1>
-            <div class="map">
-                Mapa
+            <div id="map">
             </div>
         </section>
+        
     
         <footer>
             <div class="container">

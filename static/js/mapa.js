@@ -9,10 +9,10 @@ var pegarValores = function(){
 	
 	var mapa = document.createElement('div');
 	mapa.setAttribute("id","mapa");
-	document.getElementById('conteudo').appendChild(mapa);
+	document.getElementById('map').appendChild(mapa);
 	
-	mapa.style.width="350px";
-	mapa.style.height="300px";
+	mapa.style.width="1100px";
+	mapa.style.height="350px";
 		
 	CriarMap(lat,long);
 
@@ -21,9 +21,9 @@ var pegarValores = function(){
 //Onde o mapa é gerado
 function CriarMap(lat1,long1){
 
-	var mymap = L.map('mapa').setView([lat1,long1], 15);
+	var mymap = L.map('mapa').setView([lat1,long1], 16);
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY2ZsYmVkdWNhdG9yIiwiYSI6ImNrMTZrYm1vNTA1dWEzaGxqN2tmMTZlazcifQ.XXsWkpgiguegb-C7WQpGBA', {
-		maxZoom: 18,
+		maxZoom: 20,
 		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
 			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',

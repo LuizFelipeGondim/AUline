@@ -33,6 +33,7 @@ section.animal-info .block-info .specific ul li{
 
 section.animal-info .block-info .specific .carac{
     max-width: 300px;
+    min-width: 200px;
 }
 
 /* health */
@@ -84,7 +85,8 @@ section.block-map{
     padding: 15px;
 }
 
-section.block-map .map {
+section.block-map #map {
+    margin-top: 20px;
     margin-bottom: 80px;
 }
 

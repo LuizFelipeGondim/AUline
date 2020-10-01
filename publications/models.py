@@ -12,9 +12,9 @@ class Animal(models.Model):
     )
 
     SEXO = (
-        ('F', 'Fêmea'),
-        ('M', 'Macho'),
-        ('SE', 'Sexo Desconhecido')
+        ('Fêmea', 'Fêmea'),
+        ('Macho', 'Macho'),
+        ('Sexo Desconhecido', 'Sexo Desconhecido')
     )
 
     PORTE = (
@@ -44,7 +44,7 @@ class Animal(models.Model):
     imagem = models.ImageField('Imagem', upload_to='posts', default='posts/unknown_animal.png')
     categoria = models.CharField('Categoria', max_length=15, choices=ESTADOS)
 
-    sexo = models.CharField('Sexo', max_length=8, choices=SEXO, blank=True)
+    sexo = models.CharField('Sexo', max_length=18, choices=SEXO, blank=True)
     porte = models.CharField('Porte', max_length=8, choices=PORTE)
 
     vacinado = models.CharField('Vacinado', choices=ESCOLHAS, max_length=20)
