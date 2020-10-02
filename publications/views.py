@@ -119,3 +119,11 @@ def contato(request):
             return redirect('/')
     return render(request, 'entre-em-contato.html', contexto)
 
+def doe(request):
+    return render(request, 'doe.html')
+
+def incentivo(request):
+    return render(request, 'incentivo.html')
+    
+def sobre(request):
+    return render(request, 'sobre.html')
