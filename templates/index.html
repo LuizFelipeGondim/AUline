@@ -36,43 +36,45 @@
 
 					<div class="col-md-8">
 						<form method="POST">
+							{% csrf_token %}
 							<div class="form-row">
 								<div class="form-group col-md-6">
 								<label class="title-input">Nome</label> <br>
-								<input type="text" class="input-filter" placeholder="Nome">
+								<input type="text" class="input-filter" placeholder="Nome" name="nome">
 								</div>
 								<div class="form-group col-md-6">
 									<label class="title-input" >Cidade</label> <br>
-									<input type="text" class="input-filter" placeholder="Cidade">
+									<input type="text" class="input-filter" placeholder="Cidade" name="cidade">
 								</div>
 								<div class="form-group col-md-6">
 									<label class="title-input" >Categoria</label> <br>
-									<select class="input-filter">
-										<option value="">Perdido</option>
-										<option value="">Para adoção</option>
-										<option value="">Encontrado</option>
+									<select class="input-filter" name="categoria_filtro">
+										<option value="P">Perdido</option>
+										<option value="Para Adoção">Para adoção</option>
+										<option value="Encontrado">Encontrado</option>
 									</select>
 								</div>
 								<div class="form-group col-md-6">
 									<label class="title-input" >Porte</label> <br>
-									<select class="input-filter">
-										<option value="">Pequeno</option>
-										<option value="">Médio</option>
-										<option value="">Grande</option>
+									<select class="input-filter" name="porte">
+										<option value="Pequeno">Pequeno</option>
+										<option value="Médio">Médio</option>
+										<option value="Grande">Grande</option>
 									</select>
 								</div>
 								<div class="form-group col-md-6">
 									<label class="title-input" >Sexo</label> <br>
-									<select class="input-filter">
-										<option value="">Macho</option>
-										<option value="">Fêmea</option>
+									<select class="input-filter" name="sexo">
+										<option value="Macho">Macho</option>
+										<option value="Fêmea">Fêmea</option>
+										<option value="Sexo Desconhecido">Sexo Desconhecido</option>
 									</select>
 								</div>
 								<div class="form-group col-md-6">
 									<label class="title-input" >Tipo</label> <br>
-									<select class="input-filter">
-										<option value="">Cachorro</option>
-										<option value="">Gato</option>
+									<select class="input-filter" name="tipo">
+										<option value="Ccachorro">Cachorro</option>
+										<option value="Gato">Gato</option>
 									</select>
 								</div>
 								<div class="col-md-6"></div>

@@ -40,6 +40,10 @@ def lista_animal(request):
         if request.POST.get('porte'):
             porte = request.POST.get('porte')
             lista_de_animais = lista_de_animais.filter(porte=porte)
+
+        if request.POST.get('tipo'):
+            tipo = request.POST.get('tipo')
+            lista_de_animais = lista_de_animais.filter(tipo_animal=tipo)
     
     #paginação das publicações
     paginator = Paginator(lista_de_animais, 15)
