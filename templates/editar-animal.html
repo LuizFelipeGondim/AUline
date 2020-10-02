@@ -37,7 +37,7 @@
                         <div class="button-bar center">
                             <a href="{% url 'animais' %}" class="black text-center center " > ANIMAIS CADASTRADOS</a>
                             <a href="{% url 'alterar-informacoes' usuario.id %}" class="black text-center center"  >ALTERAR INFORMAÇÕES</a>
-                            <a href="" class="black text-center center"  >EXCLUIR CONTA</a>
+                            <a href="{% url 'excluir-conta' %}" class="black text-center center"  >EXCLUIR CONTA</a>
                             <a href="{% url 'logout' %}" class="black text-center center" >SAIR</a>
                         </div>
                     </div>

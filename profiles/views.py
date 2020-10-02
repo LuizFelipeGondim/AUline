@@ -5,6 +5,7 @@ from accounts.models import Perfil
 from accounts.forms import UserForm, PerfilForm
 from publications.forms import AnimalForm, MotivoForm
 from django.contrib.auth.decorators import login_required 
+from django.contrib.auth import logout
 
 @login_required
 def perfil(request):
@@ -80,3 +81,14 @@ def editar_animal(request, id_animal):
     }
 
     return render(request, 'editar-animal.html', contexto)
+
+@login_required
+def excluir_conta(request):
+
+    if request.method == 'POST':
+        usuario = User.objects.get(id=request.user.id)
+        usuario.delete()
+        logout(request)
+        return redirect('/')
+
+    return render(request, 'excluir-conta.html')

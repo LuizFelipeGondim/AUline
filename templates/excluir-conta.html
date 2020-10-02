@@ -11,6 +11,7 @@
 
     <section class="form-main">
         <form method="POST">
+            {% csrf_token %}
             <div class="delete-box">
                 <h1 class="green title">EXCLUIR CONTA</h1>
                 <p class="description text-center"> Tem certeza que deseja excluir sua conta?</p>
