@@ -19,24 +19,23 @@
                     <div class="col-md-3">
                         <div class="sidebar">
                             <figure>
-                                <img src="{% static 'images/saitama.jpg'%}" class="img-profile" alt="Foto de perfil">
+                                <img src="../../../media/{{perfil_usuario.avatar}}" class="img-profile" alt="Foto de perfil">
                             </figure>
                             
                             <div class="name">
-                                <h4>LUIZ FELIPE</h2>
+                                <h4>{{usuario.first_name}} {{usuario.last_name}}</h4>
                             </div>
                             <div class="bio">
                                 <p class="gray">
-                                    Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
-                                    consectetur, adipisci velit...
+                                    {{perfil_usuario.biografia}}
                                 </p>
                             </div>
                             <div class="info">
                                 <h5 class="black" >INFORMAÇÕES:</h5>
                                 <ul>
-                                    <li class="gray">luiz@gmail.com</li>
-                                    <li class="gray">Guanambi - BA</li>
-                                    <li class="gray">(77) 99999-9999</li>
+                                    <li class="gray">{{usuario.email}}</li>
+                                    <li class="gray">{{perfil_usuario.cidade_usuario}} - {{perfil_usuario.estado_usuario}}</li>
+                                    <li class="gray">{{perfil_usuario.whatsapp}}</li>
                                 </ul>
                             </div>
                             <div class="button-bar center">
