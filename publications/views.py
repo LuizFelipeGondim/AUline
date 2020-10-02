@@ -46,12 +46,12 @@ def lista_animal(request):
             lista_de_animais = lista_de_animais.filter(tipo_animal=tipo)
     
     #paginação das publicações
-    paginator = Paginator(lista_de_animais, 15)
+    ''''paginator = Paginator(lista_de_animais, 15)
     page = request.GET.get('page')
-    animais = paginator.get_page(page)
+    animais = paginator.get_page(page)'''
     
     #transformando as categorias em dicionário para trabalhar com javascript
-    for animal in animais:
+    for animal in lista_de_animais:
         categorias[animal.id] = animal.categoria
         ids.append(animal.id)
 
@@ -61,7 +61,7 @@ def lista_animal(request):
         'cidade':cidade, 
         'sexo':sexo,
         'porte':porte,
-        'animais': animais,
+        'animais': lista_de_animais,
         'categorias': categorias,
         'ids': ids,
     }
