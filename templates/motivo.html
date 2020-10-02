@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block complemento %} 
+    <link rel="stylesheet" href="{% static 'css/form.css'%}">
+{% endblock complemento %}
+
+{% block titulo %} Comentário {% endblock titulo %}
+        
+{% block conteudo %}
+    <section class="form-main">
+        <form method="POST">
+            {% csrf_token %}
+            <h1 class="green title">COMENTÁRIO</h1>
+            <p class="description"> Comente o porquê desse cadastro</p>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    {{form.motivo}}
+                </div>
+                <div class="center text-center">
+                    <button type="submit" class="button-green form-btn">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </section>
+{% endblock conteudo %}

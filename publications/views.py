@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Animal
-from .forms import AnimalForm
+from .models import Animal, MotivoCadastro
+from .forms import AnimalForm, MotivoForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required 
 from accounts.models import Perfil
@@ -68,23 +68,38 @@ def lista_animal(request):
 def cadastro_animal(request):
 
     form = AnimalForm(request.POST or None, request.FILES)
-    id_user = request.user.id
 
     if request.method == 'POST' and form.is_valid():
         user = User.objects.get(id=request.user.id)
         animal = form.save(commit=False)
         animal.usuario = user
         animal.save()
-        return redirect('/')
+        return redirect('cadastro-motivo', animal.id)
 
     return render(request, 'cadastro-animal.html', {'form':form})
 
 @login_required
+def cadastro_motivo(request, id):
+    form = MotivoForm(request.POST or None)
+    
+    if request.method == 'POST' and form.is_valid():
+        animal = Animal.objects.get(id=id)
+        motivo = form.save(commit=False)
+        motivo.animal_id = animal
+        motivo.save()
+        return redirect('/')
+
+    return render(request, 'motivo.html', {'form':form})
+
+@login_required
 def perfil_animal(request, id):
     animal = Animal.objects.get(id=id)
+    motivo = MotivoCadastro.objects.get(animal_id=id)
 
     endereco = animal.rua + ' ' + animal.cidade + ' ' + animal.estado
+    
     contexto = {
+        'motivo':motivo,
         'animal':animal,
         'endereco': endereco,
     }
@@ -103,3 +118,4 @@ def contato(request):
             form.save()
             return redirect('/')
     return render(request, 'entre-em-contato.html', contexto)
+

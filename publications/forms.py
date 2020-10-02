@@ -1,13 +1,12 @@
 from django.forms import ModelForm
-from .models import Animal
+from .models import Animal, MotivoCadastro
 from django import forms
 
 class AnimalForm(ModelForm):
     class Meta:
         model = Animal
         fields = ['nome', 'caracteristicas', 'imagem', 'sexo', 'vacinado', 'vermifugado',
-        'categoria', 'castrado', 'cidade', 'rua', 'porte', 'estado', 'tipo_animal', 'raca', 
-        'motivo']
+        'categoria', 'castrado', 'cidade', 'rua', 'porte', 'estado', 'tipo_animal', 'raca', 'idade']
 
         widgets = {
             'categoria': forms.Select(attrs={'class':'form-input'}),
@@ -20,10 +19,21 @@ class AnimalForm(ModelForm):
             'nome': forms.TextInput(attrs={'class':'form-input'}),
             'caracteristicas': forms.Textarea(attrs={'rows':5, 'cols':40, 'class':'form-textarea'} ),
             'cidade': forms.TextInput(attrs={'class':'form-input', 'placeholder':'Cidade atual do animal'}),
+            'idade': forms.TextInput(attrs={'class':'form-input', 'placeholder':'1 ano e 2 meses'}),
             'rua': forms.TextInput(attrs={'class':'form-input', 'placeholder':'Rua onde foi visto pela última vez'}),
             'estado': forms.TextInput(attrs={'class':'form-input', 'placeholder':'Estado atual do animal'}),
             'raca': forms.TextInput(attrs={'class':'form-input', 'placeholder':'Informe a raça'}),
-            'motivo': forms.Textarea(attrs={'class':'form-input', 'placeholder':'Informe o motivo'}),
             'imagem': forms.FileInput(attrs={'class':'form-input'}),
+            
+        }
+
+class MotivoForm(ModelForm):
+    class Meta:
+        model = MotivoCadastro
+        fields = ['motivo']
+
+        widgets = {
+           
+            'motivo': forms.Textarea(attrs={'rows':5, 'cols':40, 'class':'form-textarea'} ),    
             
         }

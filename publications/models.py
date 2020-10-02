@@ -61,8 +61,6 @@ class Animal(models.Model):
 
     raca = models.CharField('Raça', max_length=70, default='Não informada')
 
-    motivo = models.TextField('Por que você está cadastrando esse animal?', max_length=400)
-
 
     class Meta:
         ordering = ('-data_pub', )
@@ -71,3 +69,10 @@ class Animal(models.Model):
         return self.nome
 
 
+class MotivoCadastro(models.Model):
+    animal_id = models.ForeignKey(Animal, on_delete=models.CASCADE)
+    motivo = models.TextField('Por que você está cadastrando esse animal?', max_length=600)
+    data_pub = models.DateField('Data de nascimento', max_length=10, auto_now=True)
+
+    def __str__(self):
+        return self.animal_id.nome
