@@ -4,7 +4,7 @@ from .forms import AnimalForm, MotivoForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required 
 from accounts.models import Perfil
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from services.forms import ContatoForm
 from .utils import animal_filter
 
@@ -16,11 +16,16 @@ def lista_animal(request):
     if request.method == 'POST':
        lista_de_animais = animal_filter(request, lista_de_animais)
 
-    
-    #paginação das publicações
-    ''''paginator = Paginator(lista_de_animais, 15)
-    page = request.GET.get('page')
-    animais = paginator.get_page(page)'''
+    #Paginação
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(lista_de_animais, 3)
+    try:
+        animais = paginator.page(page)
+    except PageNotAnInteger:
+        animais = paginator.page(1)
+    except EmptyPage:
+        animais = paginator.page(paginator.num_pages)
     
     #transformando as categorias em dicionário para trabalhar com javascript
     for animal in lista_de_animais:
@@ -28,7 +33,7 @@ def lista_animal(request):
         ids.append(animal.id)
 
     contexto = {
-        'animais': lista_de_animais,
+        'animais': animais,
         'categorias': categorias,
         'ids': ids,
     }
