@@ -6,44 +6,16 @@ from django.contrib.auth.decorators import login_required
 from accounts.models import Perfil
 from django.core.paginator import Paginator
 from services.forms import ContatoForm
-
+from .utils import animal_filter
 
 def lista_animal(request):
     categorias = {}
     ids = []
-    nome = ''
-    categoria_filtro = ''
-    sexo = ''
-    porte = ''
-    cidade = ''
-    
     lista_de_animais = Animal.objects.all()
 
-    #filtro de animais
     if request.method == 'POST':
-        if request.POST.get('nome'):
-            nome = request.POST.get('nome')
-            lista_de_animais = lista_de_animais.filter(nome=nome)
+       lista_de_animais = animal_filter(request, lista_de_animais)
 
-        if request.POST.get('categoria_filtro'):
-            categoria_filtro = request.POST.get('categoria_filtro')
-            lista_de_animais = lista_de_animais.filter(categoria=categoria_filtro)
-
-        if request.POST.get('sexo'):
-            sexo = request.POST.get('sexo')
-            lista_de_animais = lista_de_animais.filter(sexo=sexo)
-
-        if request.POST.get('cidade'):
-            cidade = request.POST.get('cidade')
-            lista_de_animais = lista_de_animais.filter(cidade=cidade)
-
-        if request.POST.get('porte'):
-            porte = request.POST.get('porte')
-            lista_de_animais = lista_de_animais.filter(porte=porte)
-
-        if request.POST.get('tipo'):
-            tipo = request.POST.get('tipo')
-            lista_de_animais = lista_de_animais.filter(tipo_animal=tipo)
     
     #paginação das publicações
     ''''paginator = Paginator(lista_de_animais, 15)
@@ -56,11 +28,6 @@ def lista_animal(request):
         ids.append(animal.id)
 
     contexto = {
-        'nome':nome,
-        'categoria_filtro':categoria_filtro,
-        'cidade':cidade, 
-        'sexo':sexo,
-        'porte':porte,
         'animais': lista_de_animais,
         'categorias': categorias,
         'ids': ids,
