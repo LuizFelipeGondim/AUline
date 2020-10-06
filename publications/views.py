@@ -19,7 +19,7 @@ def lista_animal(request):
     #Paginação
     page = request.GET.get('page', 1)
 
-    paginator = Paginator(lista_de_animais, 3)
+    paginator = Paginator(lista_de_animais, 24)
     try:
         animais = paginator.page(page)
     except PageNotAnInteger:

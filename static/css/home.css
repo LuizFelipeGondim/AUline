@@ -147,6 +147,17 @@ section.publications .card .block-info .info{
     align-items: center !important;
 }
 
+/* pagination */
+
+.page-link{
+    color: #00b39d;
+}
+
+.page-item.active .page-link{
+    background-color: #00b39d;
+    border-color: #00b39d;
+}
+
 /* help */
 
 section.help .cards{
