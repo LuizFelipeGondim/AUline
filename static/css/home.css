@@ -107,6 +107,8 @@ section.publications .container .row .col-md-4{
 
 section.publications .card{
     margin:20px 0px;
+    max-height: 350px !important;
+    max-width: 230px !important;
 }
 
 section.publications .card:hover{
@@ -116,7 +118,8 @@ section.publications .card:hover{
 
 section.publications .card img{
     z-index: 3;
-    min-height: 180px
+    min-height: 200px;
+    height:-webkit-fill-available;
 }
 
 section.publications .card .block-info{
@@ -190,12 +193,14 @@ section.help .infocard a p{
 /* media queries */
 
 @media (max-width: 990px){
-    section.publications .card {
-        max-width: 230px;
+
+    section.publications .col-md-3 {
+        max-width: 100%;
+        width: 33.3% !important;
     }
 
-    section.publications .card img{
-        min-height: 160px;
+    section.publications .card {
+        max-width: 210px;
     }
 
     section.publications .card .overlay-green{
@@ -212,6 +217,12 @@ section.help .infocard a p{
 } 
 
 @media (max-width: 768px){
+
+    section.publications .col-md-3 {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+    }
 
     section.filter .input-filter{
         width: 100%;
