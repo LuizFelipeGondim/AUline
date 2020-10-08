@@ -155,8 +155,7 @@ section.publications .card:hover {
 
 section.publications .card img {
   z-index: 3;
-  min-height: 200px;
-  height: -webkit-fill-available;
+  height: 200px;
 }
 
 section.publications .card .block-info {
