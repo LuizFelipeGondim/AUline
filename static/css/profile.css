@@ -2,6 +2,9 @@
 section.content-main .sidebar {
   background-color: #FDFDFD;
   padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
