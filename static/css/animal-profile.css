@@ -3,9 +3,21 @@ section.animal-info {
   margin-bottom: 25px;
 }
 
-section.animal-info img {
-  width: inherit;
-  height: inherit;
+.thumb {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.thumb img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 section.animal-info .block-info {
@@ -100,22 +112,31 @@ section.block-map {
 section.block-map #map {
   margin-top: 20px;
   margin-bottom: 80px;
+  width: 90%;
+  max-width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#mapa {
+  width: 95% !important;
+  border-radius: 10px;
+  -webkit-box-shadow: 8px 7px 5px -3px #cccccc;
+          box-shadow: 8px 7px 5px -3px #cccccc;
 }
 
 /* media queries */
 @media (max-width: 1200px) {
-  section.animal-info img {
-    height: 90%;
-  }
   section.animal-info .block-info .specific .carac {
     max-width: 230px;
   }
 }
 
 @media (max-width: 992px) {
-  section.animal-info img {
-    height: 60%;
-  }
   section.animal-info .row {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -127,6 +148,9 @@ section.block-map #map {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  .thumb {
+    height: 350px;
   }
   section.animal-info .row .col-md-6 {
     max-width: 80% !important;
@@ -177,9 +201,6 @@ section.block-map #map {
 }
 
 @media (max-width: 410px) {
-  section.animal-info img {
-    height: 40%;
-  }
   section.animal-info .block-info .specific {
     display: -webkit-box;
     display: -ms-flexbox;

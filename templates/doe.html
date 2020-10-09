@@ -40,7 +40,9 @@
                 <div class="col-md-8" >
                     {% for ponto in pontos %}
                         <div class="card">
-                            <img class="card-img-top" src="../media/{{ponto.imagem}}" alt="{{ponto.nome_ponto}}">
+                            <div class="thumb">
+                                <img src="../media/{{ponto.imagem}}" alt="{{ponto.nome_ponto}}">
+                            </div>
                             <div class="card-body text-center">
                                 <h4 class="green">{{ponto.nome_ponto}}</h4>
                                 <p class="gray">

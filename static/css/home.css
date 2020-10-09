@@ -153,9 +153,21 @@ section.publications .card:hover {
           box-shadow: 8px 7px 5px -3px #cccccc !important;
 }
 
-section.publications .card img {
-  z-index: 3;
+.thumb {
+  position: relative;
+  max-width: 230px;
   height: 200px;
+  overflow: hidden;
+}
+
+.thumb img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 section.publications .card .block-info {

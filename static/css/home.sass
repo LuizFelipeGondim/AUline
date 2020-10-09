@@ -114,11 +114,20 @@ section.publications .card
 section.publications .card:hover 
     transition: box-shadow 0.5s 
     box-shadow: 8px 7px 5px -3px #cccccc !important 
-  
 
-section.publications .card img 
-    z-index: 3 
-    height: 200px 
+.thumb 
+    position: relative
+    max-width: 230px
+    height: 200px
+    overflow: hidden
+
+.thumb img 
+    position: absolute
+    left: 50%
+    top: 50%
+    height: 100%
+    width: auto
+    transform: translate(-50%,-50%)
       
 section.publications .card .block-info 
     display: flex 

@@ -57,7 +57,9 @@
                                 {% for animal in animais %}
                                     <div class="card">  
                                         <a href="{% url 'perfil-animal' animal.id %}" > 
-									        <img class="card-img-top" src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
+                                            <div class="thumb">
+                                                <img src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
+                                            </div>
 								        </a>
                                         <div class="card-body">
                                             <div class="info-top">

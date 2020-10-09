@@ -107,7 +107,9 @@
 							<div class="card" style="width: 18rem;">
 								
 								<a href="{% url 'perfil-animal' animal.id %}" > 
-									<img class="card-img-top" src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
+									<div class="thumb">
+										<img src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
+									</div>
 								</a>
 								<div class="card-body">
 									<h5 class="black">{{animal.nome}}</h5>

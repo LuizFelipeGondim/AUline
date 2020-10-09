@@ -10,8 +10,7 @@ var pegarValores = function(){
 	var mapa = document.createElement('div');
 	mapa.setAttribute("id","mapa");
 	document.getElementById('map').appendChild(mapa);
-	
-	mapa.style.width="1100px";
+
 	mapa.style.height="350px";
 		
 	CriarMap(lat,long);

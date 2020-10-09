@@ -89,21 +89,28 @@ section.content-main .content h1
 
 section.content-main .content .cards  
     display: flex  
-    justify-content: flex-start  
-    align-items: center  
+    justify-content: flex-start    
     flex-wrap: wrap  
 
   
 
 section.content-main .content .cards .card  
     margin: 20px 10px  
-    max-width: 240px  
+    width: 230px  
   
+.thumb 
+    position: relative
+    max-width: 230px
+    height: 200px
+    overflow: hidden
 
-section.content-main .content .cards .card img  
-    cursor: pointer  
-    z-index: 3  
-    min-height: 180px  
+.thumb img 
+    position: absolute
+    left: 50%
+    top: 50%
+    height: 100%
+    width: auto
+    transform: translate(-50%,-50%)
   
 
 section.content-main .content .cards .card .info-top  
