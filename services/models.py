@@ -17,15 +17,15 @@ class Contato(models.Model):
 
 
 class Depoimento(models.Model):
-    autor = models.OneToOneField('auth.User', on_delete=models.CASCADE)
+    cadastrante = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     data_coment = models.DateTimeField(auto_now=True)
-    conteudo = models.TextField('Depoimento', max_length=300)
+    autor = models.CharField('Autor', max_length=80)
+    conteudo = models.TextField('Depoimento', max_length=400)
     permissao = models.BooleanField(default=True)
-    titulo = models.CharField('Título', max_length=80)
 
 
     def __str__(self):
-        return self.titulo 
+        return self.autor
 
 
 

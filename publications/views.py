@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Animal, MotivoCadastro
-from services.models import PontoAcesso
+from services.models import PontoAcesso, Depoimento
 from .forms import AnimalForm, MotivoForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required 
@@ -101,13 +101,16 @@ def doe(request):
     contexto = {
         'pontos':pontos
     }
-    
+
     return render(request, 'doe.html', contexto)
 
 def incentivo(request):
     pontos = PontoAcesso.objects.exclude(tipo_ponto='PD')
+    depoimentos = Depoimento.objects.all()
+
     contexto = {
-        'pontos':pontos
+        'pontos':pontos,
+        'depoimentos': depoimentos,
     }
 
     return render(request, 'incentivo.html', contexto)

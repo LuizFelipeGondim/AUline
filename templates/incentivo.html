@@ -88,30 +88,16 @@
                     <h1 class="title green">DEPOIMENTOS</h1>
                 </div>
                 <div class="depoiments">
-                    <div class="col-md-12 statement">
-                        <img src="{% static 'images/svg/statements/fernanda.svg'%}" alt="Fernanda">
-                        <div class="text-depoiment">
-                            <h4 class="green">Fernanda</h4>
-                            <p class="gray justify">
-                                “ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. “
-                            </p>
+                    {% for depoimento in depoimentos %}
+                        <div class="col-md-12 statement">
+                            <div class="text-depoiment">
+                                <h4 class="green">{{depoimento.autor}}</h4>
+                                <p class="gray justify">
+                                    “ {{depoimento.conteudo}} “
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-12 statement">
-                        <img src="{% static 'images/svg/statements/carlos.svg'%}" alt="Fernanda">
-                        <div class="text-depoiment">
-                            <h4 class="green">Carlos</h4>
-                            <p class="gray">
-                                “ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. “
-                            </p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
