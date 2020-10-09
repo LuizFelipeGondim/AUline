@@ -65,34 +65,17 @@
                 </div>
 
                 <div class="col-md-8" style="margin-bottom: 25px;">
-                    <div class="card">
-                        <img class="card-img-top" src="{% static 'images/img-address.jpg'%}" alt="ONG">
-                        <div class="card-body text-center">
-                            <h4 class="green">Unianjos</h4>
-                            <p class="gray">
-                                ONG sem fins lucrativos
-                            </p>
+                    {% for ponto in pontos %}
+                        <div class="card">
+                            <img class="card-img-top" src="../media/{{ponto.imagem}}" alt="{{ponto.nome_ponto}}">
+                            <div class="card-body text-center">
+                                <h4 class="green">{{ponto.nome_ponto}}</h4>
+                                <p class="gray">
+                                    {{ponto.desc_ponto}}
+                                </p>
+                            </div>
                         </div>
-                        
-                    </div>
-                    <div class="card" >
-                        <img class="card-img-top" src="{% static 'images/img-address.jpg'%}" alt="ONG">
-                        <div class="card-body text-center">
-                            <h4 class="green">Unianjos</h4>
-                            <p class="gray">
-                                ONG sem fins lucrativos
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card" >
-                        <img class="card-img-top" src="{% static 'images/img-address.jpg'%}" alt="ONG">
-                        <div class="card-body text-center">
-                            <h4 class="green">Unianjos</h4>
-                            <p class="gray">
-                                ONG sem fins lucrativos
-                            </p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

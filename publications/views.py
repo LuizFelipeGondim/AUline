@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Animal, MotivoCadastro
+from services.models import PontoAcesso
 from .forms import AnimalForm, MotivoForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required 
@@ -96,10 +97,20 @@ def contato(request):
     return render(request, 'entre-em-contato.html', contexto)
 
 def doe(request):
-    return render(request, 'doe.html')
+    pontos = PontoAcesso.objects.exclude(tipo_ponto='PA')
+    contexto = {
+        'pontos':pontos
+    }
+    
+    return render(request, 'doe.html', contexto)
 
 def incentivo(request):
-    return render(request, 'incentivo.html')
+    pontos = PontoAcesso.objects.exclude(tipo_ponto='PD')
+    contexto = {
+        'pontos':pontos
+    }
+
+    return render(request, 'incentivo.html', contexto)
     
 def sobre(request):
     return render(request, 'sobre.html')
