@@ -7,8 +7,9 @@ db.sqlite3
 media/posts/*
 !media/posts/.gitkeep
 media/perfil/*
-
 !media/perfil/unknown.png
+media/points/*
+!media/points/.gitkeep
 
 # Backup files # 
 *.bak 
