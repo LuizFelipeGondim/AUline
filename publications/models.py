@@ -41,7 +41,7 @@ class Animal(models.Model):
 
     data_pub = models.DateTimeField('Data de Publicação', auto_now=True)
 
-    imagem = models.ImageField('Imagem', upload_to='posts', default='posts/unknown_animal.png')
+    imagem = models.ImageField('Imagem', upload_to='posts', blank=False)
     categoria = models.CharField('Categoria', max_length=15, choices=ESTADOS)
 
     sexo = models.CharField('Sexo', max_length=18, choices=SEXO, default='Sexo Desconhecido')

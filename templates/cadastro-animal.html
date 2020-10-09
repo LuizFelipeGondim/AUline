@@ -23,74 +23,148 @@
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Categoria</label> <br>
                                 {{ form.categoria }}
+                                {% if form.errors.categoria %}
+                                    <div class="alert alert-info" role="alert">
+                                        {{form.errors.categoria}}
+                                    </div>
+                                {% endif %}
                             </div>
 
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-6" style="margin-top:-4px;">
                                 <label class="form-title gray">Estado</label> <br>
                                 {{ form.estado }}
+                                {% if form.errors.estado %}
+                                    <div class="alert alert-info" role="alert">
+                                        {{form.errors.estado}}
+                                    </div>
+                                {% endif %}
                             </div>
                             
                             <div class="form-group col-md-6" style="margin-top:-4px;">
                                 <label class="form-title gray">Nome</label> <br>
                                 {{ form.nome }}
+                                {% if form.errors.nome %}
+                                    <div class="alert alert-info" role="alert">
+                                        {{form.errors.nome}}
+                                    </div>
+                                {% endif %}
                             </div>
 
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-6" style="margin-top:-4px;">
                                 <label class="form-title gray">Cidade</label> <br>
                                 {{ form.cidade }}
+                                {% if form.errors.cidade %}
+                                    <div class="alert alert-info" role="alert">
+                                        {{form.errors.cidade}}
+                                    </div>
+                                {% endif %}
                             </div>
 
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Tipo</label> <br>
                                 {{ form.tipo_animal }}
+                                {% if form.errors.tipo_animal %}
+                                    <div class="alert alert-info" role="alert">
+                                        {{form.errors.tipo_animal}}
+                                    </div>
+                                {% endif %}
                             </div>
 
                             <div class="form-group col-md-6" style="margin-top:-4px;">
                                 <label class="form-title gray">Rua</label> <br>
                                 {{ form.rua }}
+                                {% if form.errors.rua %}
+                                    <div class="alert alert-info" role="alert">
+                                        {{form.errors.rua}}
+                                    </div>
+                                {% endif %}
                             </div>
                             
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Porte</label> <br>
                                 {{ form.porte }}
+                                {% if form.errors.porte %}
+                                    <div class="alert alert-info" role="alert">
+                                        {{form.errors.porte}}
+                                    </div>
+                                {% endif %}
                             </div>
                             
                             <div class="form-group col-md-6" style="margin-top:-4px;">
                                 <label class="form-title gray">Raça</label> <br>
                                 {{ form.raca }}
+                                {% if form.errors.raca %}
+                                    <div class="alert alert-info" role="alert">
+                                        {{form.errors.raca}}
+                                    </div>
+                                {% endif %}
                             </div>
                             
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Sexo</label> <br>
                                 {{ form.sexo }}
+                                {% if form.errors.sexo %}
+                                    <div class="alert alert-info" role="alert">
+                                        {{form.errors.sexo}}
+                                    </div>
+                                {% endif %}
                             </div>
                             
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Vacinado</label> <br>
                                 {{ form.vacinado }}
+                                {% if form.errors.vacinado %}
+                                    <div class="alert alert-info" role="alert">
+                                        {{form.errors.vacinado}}
+                                    </div>
+                                {% endif %}
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Castrado</label> <br>
                                 {{ form.castrado }}
+                                {% if form.errors.castrado %}
+                                    <div class="alert alert-info" role="alert">
+                                        {{form.errors.castrado}}
+                                    </div>
+                                {% endif %}
                             </div>
                             
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Vermifugado</label> <br>
                                 {{ form.vermifugado }}
+                                {% if form.errors.vermifugado %}
+                                    <div class="alert alert-info" role="alert">
+                                        {{form.errors.vermifugado}}
+                                    </div>
+                                {% endif %}
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="form-title gray">Características</label> <br>
                                 {{ form.caracteristicas }}
+                                {% if form.errors.caracteristicas %}
+                                    <div class="alert alert-info" role="alert">
+                                        {{form.errors.caracteristicas}}
+                                    </div>
+                                {% endif %}
                             </div>
                             <div class="form-group col-md-6" style="margin-top:-4px;">
                                 <label class="form-title gray">Idade</label> <br>
                                 {{ form.idade }}
+                                {% if form.errors.idade %}
+                                    <div class="alert alert-info" role="alert">
+                                        {{form.errors.idade}}
+                                    </div>
+                                {% endif %}
                             </div>
                             <div class="form-group col-md-6" style="margin-top:-4px;">
                                 <label class="form-title gray">Imagem</label> <br>
                                 {{ form.imagem }}
-                            </div>
-                            {{ form.errors }}                            
+                                {% if form.errors.imagem %}
+                                    <div class="alert alert-info" role="alert">
+                                        {{form.errors.imagem}}
+                                    </div>
+                                {% endif %}
+                            </div>                           
                         </div>
                     </div>
                     <div class="center text-center">

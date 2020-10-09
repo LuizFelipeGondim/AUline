@@ -135,6 +135,16 @@ form.form-long .form-btn {
   max-height: 500px;
 }
 
+.alert {
+  margin-bottom: 0px !important;
+  padding: 0.75rem 0rem !important;
+  margin-top: 10px;
+}
+
+.alert .errorlist {
+  margin-bottom: 0px !important;
+}
+
 /* delete-box */
 section.form-main form .delete-box {
   height: 250px;

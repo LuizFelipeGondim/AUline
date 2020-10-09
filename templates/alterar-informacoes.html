@@ -58,23 +58,48 @@
                                             <div class="form-group col-md-6">
                                                 <label class="form-title gray">Estado</label> <br>
                                                 {{ form_perfil.estado_usuario }}
+                                                {% if form_perfil.errors.estado_usuario %}
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{form_perfil.errors.estado_usuario}}
+                                                    </div>
+                                                {% endif %}
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-title gray">Cidade</label> <br>
                                                 {{ form_perfil.cidade_usuario }}
+                                                {% if form_perfil.errors.cidade_usuario %}
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{form_perfil.errors.cidade_usuario}}
+                                                    </div>
+                                                {% endif %}
                                             </div>
                                             <div class="form-group col-md-6" style="margin-top:-4px;">
                                                 <label class="form-title gray">Data de nascimento</label> <br>
                                                 {{ form_perfil.data_de_nascimento }}
+                                                {% if form_perfil.errors.data_de_nascimento %}
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{form_perfil.errors.data_de_nascimento}}
+                                                    </div>
+                                                {% endif %}
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-title gray"> Whatsapp </label> <br>
                                                 {{ form_perfil.whatsapp }}
+                                                {% if form_perfil.errors.whatsapp %}
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{form_perfil.errors.whatsapp}}
+                                                    </div>
+                                                {% endif %}
                                             </div>
                                             <div class="col-md-6"></div>
                                             <div class="form-group col-md-6">
                                                 <label class="form-title gray">Biografia</label> <br>
                                                 {{ form_perfil.biografia }}
+                                                {% if form_perfil.errors.biografia %}
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{form_perfil.errors.biografia}}
+                                                    </div>
+                                                {% endif %}
                                             </div>
                                         </div>
                                     </div>

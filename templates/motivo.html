@@ -16,6 +16,11 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     {{form.motivo}}
+                    {% if form.errors.motivo %}
+                        <div class="alert alert-info" role="alert">
+                            {{form.errors.motivo}}
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="center text-center">
                     <button type="submit" class="button-green form-btn">Enviar</button>

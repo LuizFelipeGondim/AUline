@@ -17,18 +17,38 @@
             <div class="form-group col-md-12">
                 <label class="form-title gray">Nome (opcional)</label> <br>
                 {{form.nome}}
+                {% if form.errors.nome %}
+                    <div class="alert alert-info" role="alert">
+                        {{form.errors.nome}}
+                    </div>
+                {% endif %}
             </div>
             <div class="form-group col-md-12">
                 <label class="form-title gray" >E-mail</label> <br>
                 {{form.email}}
+                {% if form.errors.email %}
+                    <div class="alert alert-info" role="alert">
+                        {{form.errors.email}}
+                    </div>
+                {% endif %}
             </div>
             <div class="form-group col-md-12">
                 <label class="form-title gray" >Assunto do contato</label> <br>
                 {{form.titulo}}
+                {% if form.errors.titulo %}
+                    <div class="alert alert-info" role="alert">
+                        {{form.errors.titulo}}
+                    </div>
+                {% endif %}
             </div>
             <div class="form-group col-md-12">
                 <label class="form-title gray" >Como podemos ajudar?</label>
                 {{form.conteudo}}
+                {% if form.errors.conteudo %}
+                    <div class="alert alert-info" role="alert">
+                        {{form.errors.conteudo}}
+                    </div>
+                {% endif %}
             </div>
             <div class="center text-center">
                 <button type="submit" class="button-green form-btn">Enviar</button>
