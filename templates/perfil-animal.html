@@ -24,7 +24,21 @@
                         </div>
                     </div>
                     <div class="col-md-6 block-info">
-                        <h1 class="title green"> {{animal.nome}} </h1>
+                        <div class="info-top">
+                            <h1 class="title green"> {{animal.nome}} </h1>
+                            {% if animal.categoria == "P" %}
+                                <p class="perdido">Perdido</p>
+                            {% endif %}
+                            {% if animal.categoria == "PA" %}
+                                <p class="adocao">Para Adoção</p>
+                            {% endif %}
+                            {% if animal.categoria == "E" %}
+                                <p class="encontrado">Encontrado</p>
+                            {% endif %}
+                            {% if animal.categoria == "A" %}
+                                <p class="adotado">Adotado</p>
+                            {% endif %}
+                        </div>
                         <div class="desc justify">
                             <p class="gray">
                                 {{motivo.motivo}}
@@ -103,6 +117,16 @@
                                     <h6 class="white">Castrado</h6>
                                 </div>
                             {% endif %}
+                        </div>
+                        <div class="btn-group center" role="group">
+                            <button id="btnGroupDrop1" type="button" class="button-green" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Informações do responsável
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <p>{{responsavel.first_name}}  {{responsavel.last_name}}</p>
+                                <p>{{responsavel.email}}</p>
+                                <p>{{perfil_responsavel.whatsapp}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>

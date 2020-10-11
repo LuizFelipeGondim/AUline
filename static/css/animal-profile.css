@@ -1,3 +1,24 @@
+/* animal category */
+.perdido {
+  color: #ed8787;
+  border-color: #ed8787;
+}
+
+.encontrado {
+  color: #5eed5e;
+  border-color: #5eed5e;
+}
+
+.adocao {
+  color: #3fbcdb;
+  border-color: #3fbcdb;
+}
+
+.adotado {
+  color: #9b228b;
+  border-color: #9b228b;
+}
+
 /* animal info */
 section.animal-info {
   margin-bottom: 25px;
@@ -18,6 +39,22 @@ section.animal-info {
   width: auto;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+section.animal-info .info-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section.animal-info .info-top p {
+  border: 1px solid;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 0px 0px 5px 20px;
 }
 
 section.animal-info .block-info {
@@ -102,6 +139,18 @@ section.animal-info .block-info .specific .carac {
 
 .healthy:hover {
   opacity: 0.8;
+}
+
+/* contact */
+.btn-group {
+  margin-top: 35px;
+}
+
+.dropdown-menu {
+  width: 245px !important;
+  background-color: #00B39D;
+  color: #ffffff;
+  padding: 10px !important;
 }
 
 /* block map */

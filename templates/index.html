@@ -2,16 +2,16 @@
 {% load static %}
 
 {% block complemento %} 
-    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+	<link rel="stylesheet" href="{% static 'css/home.css'%}">
+
+	{{ categorias|json_script:'categorias' }}
+    {{ ids|json_script:'ids' }}
+    <script type="text/javascript" src="{% static 'js/categorias.js' %}"></script>
 {% endblock complemento %}
 
 {% block titulo %} Página inicial {% endblock titulo %}
         
 {% block conteudo %}
-    {{ categorias|json_script:'categorias' }}
-    {{ ids|json_script:'ids' }}
-    <script type="text/javascript" src="{% static 'js/categorias.js' %}"></script>
-
     <body onload="CategoriaAnimal();">
         <section class="banner">
 			<div class="overlay"></div>

@@ -72,13 +72,16 @@ def cadastro_motivo(request, id):
 def perfil_animal(request, id):
     animal = Animal.objects.get(id=id)
     motivo = MotivoCadastro.objects.get(animal_id=id)
-
+    responsavel = User.objects.get(id=animal.usuario.id)
+    perfil_responsavel = Perfil.objects.get(usuario=responsavel.id)
     endereco = animal.rua + ' ' + animal.cidade + ' ' + animal.estado
     
     contexto = {
         'motivo':motivo,
         'animal':animal,
         'endereco': endereco,
+        'responsavel': responsavel,
+        'perfil_responsavel': perfil_responsavel
     }
    
     return render(request, 'perfil-animal.html', contexto) 
@@ -95,6 +98,7 @@ def contato(request):
             form.save()
             return redirect('/')
     return render(request, 'entre-em-contato.html', contexto)
+
 
 def doe(request):
     pontos = PontoAcesso.objects.exclude(tipo_ponto='PA')
