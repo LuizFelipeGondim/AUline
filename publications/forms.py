@@ -1,8 +1,8 @@
-from django.forms import ModelForm
+from django import forms
 from .models import Animal, MotivoCadastro
 from django import forms
 
-class AnimalForm(ModelForm):
+class AnimalForm(forms.ModelForm):
     class Meta:
         model = Animal
         fields = ['nome', 'caracteristicas', 'imagem', 'sexo', 'vacinado', 'vermifugado',
@@ -27,7 +27,7 @@ class AnimalForm(ModelForm):
             
         }
 
-class MotivoForm(ModelForm):
+class MotivoForm(forms.ModelForm):
     class Meta:
         model = MotivoCadastro
         fields = ['motivo']

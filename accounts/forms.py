@@ -10,7 +10,7 @@ class UserForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2')
+        fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
         widgets = {
             'username': forms.TextInput(attrs={'class':'form-input'}),
             'email': forms.EmailInput(attrs={'class':'form-input'}),
@@ -18,21 +18,10 @@ class UserForm(UserCreationForm):
             'last_name': forms.TextInput(attrs={'class':'form-input'}),
         }
 
-    '''def save(self, commit=True):
-        user = super().save(commit=False)
-
-        user.username = self.cleaned_data['username']
-        user.first_name = self.cleaned_data['first_name']
-        user.last_name = self.cleaned_data['last_name']
-
-        if commit:
-            user.save()
-        return user'''
-
 class PerfilForm(forms.ModelForm):
     class Meta:
         model = Perfil
-        fields = ('data_de_nascimento', 'whatsapp', 'avatar', 'cidade_usuario', 'estado_usuario', 'biografia')
+        fields = ['data_de_nascimento', 'whatsapp', 'avatar', 'cidade_usuario', 'estado_usuario', 'biografia']
         widgets = {
             'data_de_nascimento': forms.DateInput(attrs={'class':'form-input', 'placeholder':'DD/MM/YYYY'}),
             'whatsapp': forms.TextInput(attrs={'class':'form-input', 'placeholder':'(77)98888-8888'}),

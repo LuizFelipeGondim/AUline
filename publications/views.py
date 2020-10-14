@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect
-from .models import Animal, MotivoCadastro
+from .models import Animal
 from services.models import PontoAcesso, Depoimento
 from .forms import AnimalForm, MotivoForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required 
 from accounts.models import Perfil
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from services.forms import ContatoForm
-from .utils import animal_filter
+from .utils import filtro_animal, paginacao
 
 def lista_animal(request):
     categorias = {}
@@ -15,18 +14,9 @@ def lista_animal(request):
     lista_de_animais = Animal.objects.all()
 
     if request.method == 'POST':
-       lista_de_animais = animal_filter(request, lista_de_animais)
+       lista_de_animais = filtro_animal(request, lista_de_animais)
 
-    #Paginação
-    page = request.GET.get('page', 1)
-
-    paginator = Paginator(lista_de_animais, 24)
-    try:
-        animais = paginator.page(page)
-    except PageNotAnInteger:
-        animais = paginator.page(1)
-    except EmptyPage:
-        animais = paginator.page(paginator.num_pages)
+    animais = paginacao(request, lista_de_animais)
     
     #transformando as categorias em dicionário para trabalhar com javascript
     for animal in lista_de_animais:
@@ -66,27 +56,10 @@ def cadastro_motivo(request, id):
         motivo.save()
         return redirect('/')
 
-    return render(request, 'motivo.html', {'form':form})
-
-@login_required
-def perfil_animal(request, id):
-    animal = Animal.objects.get(id=id)
-    motivo = MotivoCadastro.objects.get(animal_id=id)
-    responsavel = User.objects.get(id=animal.usuario.id)
-    perfil_responsavel = Perfil.objects.get(usuario=responsavel.id)
-    endereco = animal.rua + ' ' + animal.cidade + ' ' + animal.estado
-    
-    contexto = {
-        'motivo':motivo,
-        'animal':animal,
-        'endereco': endereco,
-        'responsavel': responsavel,
-        'perfil_responsavel': perfil_responsavel
-    }
-   
-    return render(request, 'perfil-animal.html', contexto) 
+    return render(request, 'motivo.html', {'form':form}) 
 
 def contato(request):
+
     form = ContatoForm(request.POST or None)
 
     contexto = {
@@ -97,11 +70,13 @@ def contato(request):
         if form.is_valid():
             form.save()
             return redirect('/')
+
     return render(request, 'entre-em-contato.html', contexto)
 
 
 def doe(request):
     pontos = PontoAcesso.objects.exclude(tipo_ponto='PA')
+    
     contexto = {
         'pontos':pontos
     }

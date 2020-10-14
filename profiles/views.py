@@ -44,15 +44,9 @@ def alterar(request, id):
         if form_perfil.is_valid():
             form_perfil.save()
 
-            return redirect('animais')
+            return redirect('perfil-usuario')
         
     return render(request,'alterar-informacoes.html', contexto)
-
-@login_required
-def excluir_animal(request, id_animal):
-    animal = Animal.objects.get(id=id_animal)
-    animal.delete()
-    return redirect('animais')
 
 @login_required
 def editar_animal(request, id_animal):
@@ -70,7 +64,7 @@ def editar_animal(request, id_animal):
         if form.is_valid() and form_motivo.is_valid():
             form_motivo.save()
             form.save()
-            return redirect('animais')
+            return redirect('perfil-usuario')
 
     contexto = {
         'usuario':usuario,
@@ -92,3 +86,29 @@ def excluir_conta(request):
         return redirect('/')
 
     return render(request, 'excluir-conta.html')
+
+@login_required
+def perfil_animal(request, id):
+    animal = Animal.objects.get(id=id)
+    motivo = MotivoCadastro.objects.get(animal_id=id)
+    responsavel = User.objects.get(id=animal.usuario.id)
+    perfil_responsavel = Perfil.objects.get(usuario=responsavel.id)
+
+    endereco = animal.rua + ' ' + animal.cidade + ' ' + animal.estado
+    
+    contexto = {
+        'motivo':motivo,
+        'animal':animal,
+        'endereco': endereco,
+        'responsavel': responsavel,
+        'perfil_responsavel': perfil_responsavel
+    }
+   
+    return render(request, 'perfil-animal.html', contexto)
+
+@login_required
+def excluir_animal(request, id_animal):
+    animal = Animal.objects.get(id=id_animal)
+    animal.delete()
+    return redirect('perfil-usuario')
+

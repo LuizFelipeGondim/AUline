@@ -1,11 +1,10 @@
-from django.forms import ModelForm
+from django import forms
 from .models import Contato
-from django import forms 
 
-class ContatoForm(ModelForm):
+class ContatoForm(forms.ModelForm):
     class Meta:
         model = Contato
-        fields = {'nome', 'email', 'conteudo', 'titulo'}
+        fields = ['nome', 'email', 'conteudo', 'titulo']
         widgets = {
             'nome': forms.TextInput(attrs={'class':'form-input'}),
             'titulo': forms.TextInput(attrs={'class':'form-input'}),

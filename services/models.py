@@ -15,13 +15,12 @@ class Contato(models.Model):
         ordering = ('-data_envio',)
 
 
-
 class Depoimento(models.Model):
     cadastrante = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     data_coment = models.DateTimeField(auto_now=True)
     autor = models.CharField('Autor', max_length=80)
     conteudo = models.TextField('Depoimento', max_length=400)
-    permissao = models.BooleanField(default=True)
+    permissao = models.BooleanField('permissão', default=True)
 
 
     def __str__(self):

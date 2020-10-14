@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block complemento %} 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
-<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
     </script>
 
-    <link rel="stylesheet" href="{% static 'css/animal-profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animal-profile/animal-profile.css' %}">
 {% endblock complemento %}
 
 {% block titulo %} {{animal.nome}} {% endblock titulo %}
@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="thumb">
-                            <img src="../../media/{{animal.imagem}}" alt="{{animal.nome}}">
+                            <img src="../../../media/{{animal.imagem}}" alt="{{animal.nome}}">
                         </div>
                     </div>
                     <div class="col-md-6 block-info">
