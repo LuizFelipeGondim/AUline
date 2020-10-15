@@ -96,3 +96,10 @@ def incentivo(request):
     
 def sobre(request):
     return render(request, 'sobre.html')
+
+def handler404(request, exception):
+    return render(request, 'erro.html')
+
+
+def handler500(request):
+    return render(request, 'erro.html')

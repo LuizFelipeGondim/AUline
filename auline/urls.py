@@ -11,3 +11,6 @@ urlpatterns = [
     path('perfil/', include('profiles.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'publications.views.handler404'
+handler500 = 'publications.views.handler500'
