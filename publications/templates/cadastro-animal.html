@@ -138,15 +138,7 @@
                                     </div>
                                 {% endif %}
                             </div>
-                            <div class="form-group col-md-6">
-                                <label class="form-title gray">Características</label> <br>
-                                {{ form.caracteristicas }}
-                                {% if form.errors.caracteristicas %}
-                                    <div class="alert alert-info" role="alert">
-                                        {{form.errors.caracteristicas}}
-                                    </div>
-                                {% endif %}
-                            </div>
+                           
                             <div class="form-group col-md-6" style="margin-top:-4px;">
                                 <label class="form-title gray">Idade</label> <br>
                                 {{ form.idade }}
@@ -164,7 +156,16 @@
                                         {{form.errors.imagem}}
                                     </div>
                                 {% endif %}
-                            </div>                           
+                            </div>   
+                            <div class="form-group col-md-12">
+                                <label class="form-title gray">Características do animal</label> <br>
+                                {{ form.caracteristicas }}
+                                {% if form.errors.caracteristicas %}
+                                    <div class="alert alert-info" role="alert">
+                                        {{form.errors.caracteristicas}}
+                                    </div>
+                                {% endif %}
+                            </div>                        
                         </div>
                     </div>
                     <div class="center text-center">

@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from accounts.models import Perfil
 from services.forms import ContatoForm
 from .utils import filtro_animal, paginacao
+import requests
 
 def lista_animal(request):
     categorias = {}
@@ -36,6 +37,23 @@ def cadastro_animal(request):
 
     form = AnimalForm(request.POST or None, request.FILES)
 
+    '''def get_estados():
+        lista_estados = []
+        response = requests.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+        estados_json = response.json()
+        for estado in estados_json:
+            for key, value in estado.items():
+                if key == 'sigla':
+                    sigla = value
+
+                if key == 'nome':
+                    nome = value
+            lista_estados.append(dict([('sigla', sigla), ('nome', nome)]))
+
+        print(lista_estados)           
+        return 0
+
+    get_estados()'''
     if request.method == 'POST' and form.is_valid():
         user = User.objects.get(id=request.user.id)
         animal = form.save(commit=False)
@@ -99,7 +117,6 @@ def sobre(request):
 
 def handler404(request, exception):
     return render(request, 'erro.html')
-
 
 def handler500(request):
     return render(request, 'erro.html')

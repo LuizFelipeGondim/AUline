@@ -6,6 +6,7 @@ from accounts.forms import UserForm, PerfilForm
 from publications.forms import AnimalForm, MotivoForm
 from django.contrib.auth.decorators import login_required 
 from django.contrib.auth import logout
+import os
 
 @login_required
 def perfil(request):

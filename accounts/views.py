@@ -3,6 +3,7 @@ from .forms import UserForm, PerfilForm
 from django.contrib.auth import login as auth_login, authenticate, logout
 from django.contrib.auth.models import auth
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required 
 
 def cadastro(request):
     if request.user.is_authenticated:
@@ -58,7 +59,7 @@ def login(request):
     else:
         return render(request, 'login.html')
     
-
+@login_required
 def logout_view(request):
     logout(request)
     return redirect('login')

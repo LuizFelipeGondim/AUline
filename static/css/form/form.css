@@ -63,7 +63,7 @@ form .form-input::placeholder {
   border-bottom: 1px solid #cccccc;
   width: 100%;
   color: #9C9C9C;
-  background-color: #ffffff;
+  background-color: #ffffff !important;
 }
 
 .form-input:focus {
@@ -137,12 +137,17 @@ form.form-long .form-btn {
 
 .alert {
   margin-bottom: 0px !important;
-  padding: 0.75rem 0rem !important;
+  padding: 15px 0px !important;
   margin-top: 10px;
 }
 
 .alert .errorlist {
   margin-bottom: 0px !important;
+}
+
+.alert .errorlist li {
+  margin-left: -20px !important;
+  width: 96%;
 }
 
 /* delete-box */
