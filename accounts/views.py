@@ -5,6 +5,9 @@ from django.contrib.auth.models import auth
 from django.contrib import messages
 
 def cadastro(request):
+    if request.user.is_authenticated:
+        return redirect('/')
+
     if request.method == 'POST':
         form = UserForm(request.POST)
         form_perfil = PerfilForm(request.POST)
@@ -36,6 +39,10 @@ def cadastro(request):
 
 
 def login(request):
+
+    if request.user.is_authenticated:
+        return redirect('/')
+
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
