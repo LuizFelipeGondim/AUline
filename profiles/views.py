@@ -36,15 +36,17 @@ def alterar(request, id):
     perfil_usuario = Perfil.objects.get(usuario=request.user.id)
     form_perfil = PerfilForm(request.POST or None, request.FILES or None, 
                             instance=perfil_usuario)
+                            
     contexto = {
         'usuario':usuario,
         'perfil_usuario':perfil_usuario,
         'form_perfil':form_perfil,
     }
+
     if request.method == 'POST':
         if form_perfil.is_valid():
+            print('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
             form_perfil.save()
-
             return redirect('perfil-usuario')
         
     return render(request,'alterar-informacoes.html', contexto)

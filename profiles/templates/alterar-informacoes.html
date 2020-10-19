@@ -13,9 +13,10 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="sidebar">
-                        <figure>
+                        
+                        <div class="thumb" style="width: 200px;">
                             <img src="../../../media/{{perfil_usuario.avatar}}" class="img-profile" alt="Foto de perfil">
-                        </figure>
+                        </div>
                         
                         <div class="name">
                             <h4>{{usuario.first_name}} {{usuario.last_name}}</h4>
@@ -45,7 +46,7 @@
                 </div>
                 <div class="col-md-9">
                     <div class="content content-form">
-                        <form method="POST" class="form-long">
+                        <form method="POST" class="form-long" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="container">
                                 <div class="row">
@@ -91,7 +92,20 @@
                                                     </div>
                                                 {% endif %}
                                             </div>
-                                            <div class="col-md-6"></div>
+                                            <div class="form-group col-md-6" style="margin-top:-4px;">
+                                                <label class="form-title gray">Imagem</label> <br>                                
+                                                <div class='input-wrapper'>
+                                                    <label id="label-file" for='input-file'>
+                                                        Imagem de perfil
+                                                    </label>
+                                                    {{ form_perfil.avatar }}
+                                                    {% if form_perfil.errors.biografia %}
+                                                        <div class="alert alert-danger" role="alert">
+                                                            {{form_perfil.errors.biografia}}
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div> 
                                             <div class="form-group col-md-6">
                                                 <label class="form-title gray">Biografia</label> <br>
                                                 {{ form_perfil.biografia }}
@@ -116,7 +130,7 @@
             </div>
         </div>
     </section>
-
+    <script type="text/javascript" src="{% static 'js/imagem-file-name.js' %}"></script>
     <footer>
         <div class="container">
             <p class="white text-opacity">© 2020 AUline, Inc.</p>   

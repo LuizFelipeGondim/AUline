@@ -28,4 +28,5 @@ class PerfilForm(forms.ModelForm):
             'cidade_usuario': forms.TextInput(attrs={'class':'form-input', }),
             'estado_usuario': forms.TextInput(attrs={'class':'form-input'}),
             'biografia': forms.Textarea(attrs={'rows':8, 'cols':40, 'class':'form-textarea'}),
+            'avatar': forms.FileInput(attrs={'class':'form-input', 'id':'input-file'}),
         }

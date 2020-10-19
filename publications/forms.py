@@ -23,7 +23,7 @@ class AnimalForm(forms.ModelForm):
             'rua': forms.TextInput(attrs={'class':'form-input', 'placeholder':'Rua onde foi visto pela última vez'}),
             'estado': forms.TextInput(attrs={'class':'form-input', 'placeholder':'Estado atual do animal'}),
             'raca': forms.TextInput(attrs={'class':'form-input', 'placeholder':'Informe a raça'}),
-            'imagem': forms.FileInput(attrs={'class':'form-input'}),
+            'imagem': forms.FileInput(attrs={'class':'form-input', 'id':'input-file', 'value':''}),
             
         }
 

@@ -71,14 +71,14 @@ coverage.xml
 # pyenv 
 .python-version 
 
-# celery 
+# celery
 celerybeat-schedule.* 
 
 # SageMath parsed files 
 *.sage.py 
 
 # Environments 
-env/ 
+env/
 
 # mkdocs documentation 
 /site 

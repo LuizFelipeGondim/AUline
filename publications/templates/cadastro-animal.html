@@ -149,14 +149,14 @@
                                 {% endif %}
                             </div>
                             <div class="form-group col-md-6" style="margin-top:-4px;">
-                                <label class="form-title gray">Imagem</label> <br>
-                                {{ form.imagem }}
-                                {% if form.errors.imagem %}
-                                    <div class="alert alert-info" role="alert">
-                                        {{form.errors.imagem}}
-                                    </div>
-                                {% endif %}
-                            </div>   
+                                <label class="form-title gray">Imagem</label> <br>                                
+                                <div class='input-wrapper'>
+                                    <label id="label-file" for='input-file'>
+                                        Imagem do animal
+                                    </label>
+                                    {{ form.imagem }}
+                                </div>
+                            </div>  
                             <div class="form-group col-md-12">
                                 <label class="form-title gray">Características do animal</label> <br>
                                 {{ form.caracteristicas }}
@@ -165,7 +165,8 @@
                                         {{form.errors.caracteristicas}}
                                     </div>
                                 {% endif %}
-                            </div>                        
+                            </div>  
+                                                 
                         </div>
                     </div>
                     <div class="center text-center">
@@ -176,4 +177,5 @@
         </form>
     </section>
 
+    <script type="text/javascript" src="{% static 'js/imagem-file-name.js' %}"></script>
 {% endblock conteudo %}
