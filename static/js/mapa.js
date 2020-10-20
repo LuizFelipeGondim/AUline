@@ -11,7 +11,7 @@ var pegarValores = function(){
 	mapa.setAttribute("id","mapa");
 	document.getElementById('map').appendChild(mapa);
 
-	mapa.style.height="350px";
+	mapa.style.height="400px";
 		
 	CriarMap(lat,long);
 
@@ -19,15 +19,17 @@ var pegarValores = function(){
 
 //Onde o mapa é gerado
 function CriarMap(lat1,long1){
-
 	var mymap = L.map('mapa').setView([lat1,long1], 16);
-	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY2ZsYmVkdWNhdG9yIiwiYSI6ImNrMTZrYm1vNTA1dWEzaGxqN2tmMTZlazcifQ.XXsWkpgiguegb-C7WQpGBA', {
-		maxZoom: 20,
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox.streets'
+
+	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibHVpemZnYSIsImEiOiJja2dneXF0YTcxbXp1MnJwNGNkNXJldHZ0In0.WkHL-ShT9LVbrKYdVitQDw', {
+		attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
+		tileSize: 512,
+		maxZoom: 18,
+		zoomOffset: -1,
+		id: 'mapbox/streets-v11',
+		accessToken: 'pk.eyJ1IjoibHVpemZnYSIsImEiOiJja2dneXF0YTcxbXp1MnJwNGNkNXJldHZ0In0.WkHL-ShT9LVbrKYdVitQDw'
 	}).addTo(mymap);
+	
 	L.marker([lat1,long1]).addTo(mymap)
 		.bindPopup("<b>Atenção!</b><br />Local onde o animal pode ser encontrado").openPopup();
 	L.circle([lat1,long1], 400, {
