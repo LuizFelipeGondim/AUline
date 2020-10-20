@@ -89,7 +89,7 @@ section.address .card {
   width: 100%;
   height: 100%;
   min-height: 180px;
-  min-width: 230px;
+  min-width: 215px;
   overflow: hidden;
 }
 
@@ -115,10 +115,68 @@ section.address .col-md-4 {
           justify-content: center;
 }
 
+.flip-card {
+  background-color: transparent;
+  width: 230px;
+  height: 301px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  margin-left: 5px;
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing */
+/* Style the back side */
+.flip-card-back {
+  background-color: #57bc90;
+  color: white;
+  margin-top: 9px;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  padding: 15px;
+}
+
 /* media queries */
 @media (max-width: 1200px) {
   section.address .card {
-    max-width: 190px;
+    max-width: 200px;
+  }
+  .flip-card {
+    width: 200px;
+  }
+  .thumb {
+    min-width: 180px;
+    max-width: 200px;
   }
 }
 
@@ -178,6 +236,16 @@ section.address .col-md-4 {
   }
   section.donate img.dog-donate {
     max-height: 650px;
+  }
+  section.address .card {
+    max-width: 230px;
+  }
+  .flip-card {
+    width: 230px;
+    margin-top: 15px;
+  }
+  .thumb {
+    max-width: 230px;
   }
 }
 

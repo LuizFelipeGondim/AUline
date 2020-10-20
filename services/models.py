@@ -45,7 +45,7 @@ class PontoAcesso(models.Model):
     estado_ponto = models.CharField('Estado', max_length=50, blank=False)
     cidade_ponto = models.CharField('Cidade', max_length=50, blank=False)
     rua_ponto = models.CharField('Rua', max_length=70, blank=False)
-    numero_rua = models.CharField('Número do ponto', max_length=70, blank=False)
+    numero_ponto = models.CharField('Número do ponto', max_length=70, blank=False)
     referencia = models.CharField('Referência', max_length=70, blank=False)
     nome_ponto = models.CharField('Nome do ponto', max_length=70, blank=False)
     telefone = models.CharField('Telefone Fixo', max_length=15)

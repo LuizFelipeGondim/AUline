@@ -39,15 +39,32 @@
 
                 <div class="col-md-8" >
                     {% for ponto in pontos %}
-                        <div class="card">
-                            <div class="thumb">
-                                <img src="../media/{{ponto.imagem}}" alt="{{ponto.nome_ponto}}">
-                            </div>
-                            <div class="card-body text-center">
-                                <h4 class="green">{{ponto.nome_ponto}}</h4>
-                                <p class="gray">
-                                    {{ponto.desc_ponto}}
-                                </p>
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="card">
+                                        <div class="thumb">
+                                            <img src="../media/{{ponto.imagem}}" alt="{{ponto.nome_ponto}}">
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <h4 class="green">{{ponto.nome_ponto}}</h4>
+                                            <p class="gray">
+                                                {{ponto.desc_ponto}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p style="margin-top: 15px;"> Rua {{ponto.rua_ponto}}, N° {{ponto.numero_ponto}}, {{ponto.cidade_ponto}} - {{ponto.estado_ponto}}</p>
+
+                                    <p>Referência: {{ponto.referencia}}</p>
+
+                                    <p>
+                                        Tel.: {{ponto.telefone}} <br>
+                                        Whatsapp: {{ponto.whatsapp}}
+                                    </p>
+                                    <p></p>
+                                </div>
                             </div>
                         </div>
                     {% endfor %}
