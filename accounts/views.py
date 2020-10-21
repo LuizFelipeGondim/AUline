@@ -21,15 +21,15 @@ def cadastro(request):
 
             perfil.save()
 
-            email = form.cleaned_data.get('username')
+            username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
-            user = authenticate(username=email, password=password)
+            user = authenticate(username=username, password=password)
 
             auth_login(request, user)
-            return redirect('login')
+            return redirect('/')
     else:
-        form = UserForm(request.POST)
-        form_perfil = PerfilForm(request.POST)
+        form = UserForm()
+        form_perfil = PerfilForm()
 
     contexto = {
         'form':form,
@@ -48,7 +48,7 @@ def login(request):
         email = request.POST['email']
         password = request.POST['password']
         user = authenticate(username=email, password=password)
-        print(user)
+
         if user is not None:
             auth.login(request, user)
             return redirect('/')

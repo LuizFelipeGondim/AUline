@@ -7,7 +7,6 @@ from django.contrib.auth.decorators import login_required
 from accounts.models import Perfil
 from services.forms import ContatoForm
 from .utils import filtro_animal, paginacao
-import requests
 
 def lista_animal(request):
     categorias = {}
@@ -37,29 +36,15 @@ def cadastro_animal(request):
 
     form = AnimalForm(request.POST or None, request.FILES)
 
-    '''def get_estados():
-        lista_estados = []
-        response = requests.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
-        estados_json = response.json()
-        for estado in estados_json:
-            for key, value in estado.items():
-                if key == 'sigla':
-                    sigla = value
-
-                if key == 'nome':
-                    nome = value
-            lista_estados.append(dict([('sigla', sigla), ('nome', nome)]))
-
-        print(lista_estados)           
-        return 0
-
-    get_estados()'''
     if request.method == 'POST' and form.is_valid():
-        user = User.objects.get(id=request.user.id)
-        animal = form.save(commit=False)
-        animal.usuario = user
-        animal.save()
-        return redirect('cadastro-motivo', animal.id)
+        try:
+            user = User.objects.get(id=request.user.id)
+            animal = form.save(commit=False)
+            animal.usuario = user
+            animal.save()
+            return redirect('cadastro-motivo', animal.id)
+        except:
+                return HttpResponse(status=500)
 
     return render(request, 'cadastro-animal.html', {'form':form})
 
@@ -68,11 +53,14 @@ def cadastro_motivo(request, id):
     form = MotivoForm(request.POST or None)
     
     if request.method == 'POST' and form.is_valid():
-        animal = Animal.objects.get(id=id)
-        motivo = form.save(commit=False)
-        motivo.animal_id = animal
-        motivo.save()
-        return redirect('/')
+        try:
+            animal = Animal.objects.get(id=id)
+            motivo = form.save(commit=False)
+            motivo.animal_id = animal
+            motivo.save()
+            return redirect('/')
+        except:
+                return HttpResponse(status=500)
 
     return render(request, 'motivo.html', {'form':form}) 
 
@@ -80,14 +68,14 @@ def contato(request):
 
     form = ContatoForm(request.POST or None)
 
-    contexto = {
-        'form':form
-    }
-
     if request.method == 'POST':
         if form.is_valid():
             form.save()
             return redirect('/')
+
+    contexto = {
+        'form':form
+    }
 
     return render(request, 'entre-em-contato.html', contexto)
 

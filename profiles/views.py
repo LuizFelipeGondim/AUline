@@ -6,7 +6,7 @@ from accounts.forms import UserForm, PerfilForm
 from publications.forms import AnimalForm, MotivoForm
 from django.contrib.auth.decorators import login_required 
 from django.contrib.auth import logout
-import os
+from django.http import HttpResponse
 
 @login_required
 def perfil(request):
@@ -31,11 +31,15 @@ def perfil(request):
     return render(request, 'perfil.html', contexto)
 
 @login_required
-def alterar(request, id):
-    usuario = User.objects.get(id=request.user.id)
-    perfil_usuario = Perfil.objects.get(usuario=request.user.id)
-    form_perfil = PerfilForm(request.POST or None, request.FILES or None, 
-                            instance=perfil_usuario)
+def alterar_informacoes(request, id):
+
+    try:
+        usuario = User.objects.get(id=request.user.id)
+        perfil_usuario = Perfil.objects.get(usuario=request.user.id)
+        form_perfil = PerfilForm(request.POST or None, request.FILES or None, 
+                                instance=perfil_usuario)
+    except:
+        return 
                             
     contexto = {
         'usuario':usuario,
@@ -45,9 +49,11 @@ def alterar(request, id):
 
     if request.method == 'POST':
         if form_perfil.is_valid():
-            print('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-            form_perfil.save()
-            return redirect('perfil-usuario')
+            try: 
+                form_perfil.save()
+                return redirect('perfil-usuario')
+            except:
+                return HttpResponse(status=500)
         
     return render(request,'alterar-informacoes.html', contexto)
 
@@ -65,9 +71,12 @@ def editar_animal(request, id_animal):
         
     if request.method == 'POST':
         if form.is_valid() and form_motivo.is_valid():
-            form_motivo.save()
-            form.save()
-            return redirect('perfil-usuario')
+            try:
+                form_motivo.save()
+                form.save()
+                return redirect('perfil-usuario')
+            except:
+                return HttpResponse(status=500)
 
     contexto = {
         'usuario':usuario,

@@ -36,7 +36,7 @@ class Animal(models.Model):
 
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     nome = models.CharField('Nome', max_length=50, default='Sem nome')
-    caracteristicas = models.TextField('Caracaterísticas', max_length=200, blank=True)
+    caracteristicas = models.TextField('Caracaterísticas', max_length=200)
     data_pub = models.DateTimeField('Data de Publicação', auto_now=True)
     imagem = models.ImageField('Imagem', upload_to='posts', blank=False)
     categoria = models.CharField('Categoria', max_length=15, choices=CATEGORIAS)
