@@ -4,15 +4,9 @@ body {
 
 /* form */
 section.form-main {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   min-height: 85%;
   width: 100%;
@@ -25,8 +19,7 @@ section.form-main form {
   padding: 30px;
   border-radius: 5px;
   margin: 20px 0px;
-  -webkit-box-shadow: 8px 7px 5px -3px #e4e4e4;
-          box-shadow: 8px 7px 5px -3px #e4e4e4;
+  box-shadow: 8px 7px 5px -3px #e4e4e4;
 }
 
 form.form-long {
@@ -42,15 +35,11 @@ form.form-long {
   position: relative;
 }
 
-form .form-input::-webkit-input-placeholder {
+form .form-input::-moz-placeholder {
   color: #E5E5E5;
 }
 
 form .form-input:-ms-input-placeholder {
-  color: #E5E5E5;
-}
-
-form .form-input::-ms-input-placeholder {
   color: #E5E5E5;
 }
 
@@ -71,13 +60,10 @@ form .form-input::placeholder {
 }
 
 /* textarea */
-form .form-textarea::-webkit-input-placeholder {
+form .form-textarea::-moz-placeholder {
   color: #E5E5E5;
 }
 form .form-textarea:-ms-input-placeholder {
-  color: #E5E5E5;
-}
-form .form-textarea::-ms-input-placeholder {
   color: #E5E5E5;
 }
 form .form-textarea::placeholder {
@@ -153,16 +139,9 @@ form.form-long .form-btn {
 /* delete-box */
 section.form-main form .delete-box {
   height: 250px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* media-queries */
@@ -171,8 +150,7 @@ section.form-main form .delete-box {
     font-size: 25px;
   }
 }
-
-input[type='file'] {
+input[type=file] {
   display: none;
 }
 
@@ -186,5 +164,4 @@ input[type='file'] {
 
 .input-wrapper label:hover {
   background-color: #2980b9;
-}
-/*# sourceMappingURL=form.css.map */
+}/*# sourceMappingURL=form.css.map */

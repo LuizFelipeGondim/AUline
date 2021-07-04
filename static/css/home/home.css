@@ -45,7 +45,6 @@ section.banner > .container {
   background-color: #26a599;
   border-radius: 3px;
   text-decoration: none;
-  -webkit-transition: opacity 2s;
   transition: opacity 2s;
 }
 
@@ -65,15 +64,9 @@ section.filter .col-md-8 {
 }
 
 section.filter .col-md-4 {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 section.filter .input-filter {
@@ -84,17 +77,12 @@ section.filter .input-filter {
   width: 250px;
 }
 
-section.filter .input-filter::-webkit-input-placeholder {
+section.filter .input-filter::-moz-placeholder {
   color: #ffffff;
   opacity: 0.7;
 }
 
 section.filter .input-filter:-ms-input-placeholder {
-  color: #ffffff;
-  opacity: 0.7;
-}
-
-section.filter .input-filter::-ms-input-placeholder {
   color: #ffffff;
   opacity: 0.7;
 }
@@ -114,30 +102,16 @@ section.publications {
 }
 
 section.publications .col-md-12 {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  justify-content: center;
   margin: 20px 0px;
 }
 
 section.publications .container .row .col-md-4 {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  justify-content: center;
 }
 
 section.publications .card {
@@ -147,12 +121,8 @@ section.publications .card {
 }
 
 section.publications .card:hover {
-  -webkit-transition: -webkit-box-shadow 0.5s;
-  transition: -webkit-box-shadow 0.5s;
   transition: box-shadow 0.5s;
-  transition: box-shadow 0.5s, -webkit-box-shadow 0.5s;
-  -webkit-box-shadow: 8px 7px 5px -3px #cccccc !important;
-          box-shadow: 8px 7px 5px -3px #cccccc !important;
+  box-shadow: 8px 7px 5px -3px #cccccc !important;
 }
 
 .thumb {
@@ -168,20 +138,13 @@ section.publications .card:hover {
   top: 50%;
   height: 100%;
   width: auto;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 section.publications .card .block-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   width: 100px;
 }
 
@@ -198,15 +161,9 @@ section.publications .card .block-info .info {
   height: 30px;
   width: 30px;
   border-radius: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center !important;
-      -ms-flex-align: center !important;
-          align-items: center !important;
+  justify-content: center;
+  align-items: center !important;
 }
 
 /* pagination */
@@ -221,15 +178,9 @@ section.publications .card .block-info .info {
 
 /* help */
 section.help .cards {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   margin-bottom: 80px;
 }
@@ -240,33 +191,20 @@ section.help .infocard {
   border-radius: 10px;
   margin: 30px 0px;
   width: 266px;
-  -webkit-transition: -webkit-box-shadow 0.6s;
-  transition: -webkit-box-shadow 0.6s;
   transition: box-shadow 0.6s;
-  transition: box-shadow 0.6s, -webkit-box-shadow 0.6s;
   min-height: 330px;
   max-height: 330px;
 }
 
 section.help .infocard:hover {
-  -webkit-box-shadow: 8px 7px 5px -3px #cccccc;
-          box-shadow: 8px 7px 5px -3px #cccccc;
+  box-shadow: 8px 7px 5px -3px #cccccc;
 }
 
 section.help .infocard a {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 section.help .infocard h2 {
@@ -286,50 +224,45 @@ section.help .infocard a p {
     max-width: 100%;
     width: 33.3% !important;
   }
+
   section.publications .card {
     max-width: 210px;
   }
+
   section.publications .card .overlay-green {
     height: 160px;
   }
+
   section.filter .input-filter {
     width: 200px;
   }
+
   section.help .infocard {
     width: 220px;
   }
 }
-
 @media (max-width: 768px) {
   section.publications .col-md-3 {
     width: 100% !important;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
   }
+
   section.filter .input-filter {
     width: 100%;
   }
+
   section.filter form {
     padding: 20px;
   }
+
   section.help .cards {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+
   section.help .infocard {
     width: 266px;
   }
-}
-/*# sourceMappingURL=home.css.map */
+}/*# sourceMappingURL=home.css.map */
