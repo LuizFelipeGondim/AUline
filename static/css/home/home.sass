@@ -31,7 +31,11 @@ section.banner > .container
 .chamada-banner h1 
     color:#ffffff 
     font-size: 50px 
-  
+
+.chamada-banner .text-center 
+    display: flex
+    flex-direction: column
+    align-items: center
 
 .chamada-banner p 
     margin: 24px 0px 
@@ -43,6 +47,7 @@ section.banner > .container
     padding: 10px 18px 
     color: #ffffff 
     font-size: 19px 
+    width: 150px
     display: inline-block 
     background-color: #26a599 
     border-radius: 3px 
@@ -91,71 +96,87 @@ section.filter select.input-filter
 
 /* publications */
 
-section.publications 
-    background-color: #fbfbfb 
-  
+section
+    background-color: #f3f3f3 
 
-section.publications .col-md-12 
+
+section .col-md-12 
     display: flex 
     flex-direction: row 
     justify-content: center 
     margin: 20px 0px 
-  
 
-section.publications .container .row .col-md-4 
+
+section .container .row .col-md-3 
     display: flex 
     flex-direction: row 
     justify-content: center 
-  
 
-section.publications .card 
+
+section .card 
     margin: 20px 0px 
-    max-height: 350px !important 
-    max-width: 230px !important 
-  
+    border: none
 
-section.publications .card:hover 
-    transition: box-shadow 0.5s 
-    box-shadow: 8px 7px 5px -3px #cccccc !important 
+section .card:hover 
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+    transition: box-shadow 0.7s
 
-.thumb 
+section .card a img.card-img-top    
+    z-index: 3    
+    height: 180px
+
+section .card .thumb 
     position: relative
-    max-width: 230px
-    height: 200px
+    height: 180px
     overflow: hidden
+    border-radius: 5px 5px 0px 0px
+    
 
-.thumb img 
+section .card .thumb img 
     position: absolute
     left: 50%
     top: 50%
     height: 100%
     width: auto
     transform: translate(-50%,-50%)
-      
-section.publications .card .block-info 
-    display: flex 
-    justify-content: space-between 
-    align-items: center 
-    width: 100px 
-  
 
-section.publications .card .localization 
-    margin-top: -8px 
-  
+section .card .title-info    
+    display: flex !important    
+    justify-content: space-between    
+    align-items: center    
+    width: 100%    
+    
 
-section.publications .card .block-info .info p 
-    margin-top: 15px !important 
-    cursor: pointer 
-  
+section .card .title-info p    
+    font-size: 12px    
+    
 
-section.publications .card .block-info .info 
-    height: 30px 
-    width: 30px 
-    border-radius: 10px 
-    display: flex 
-    justify-content: center 
-    align-items: center !important 
+section .card .block-info    
+    display: flex    
+    flex-wrap: wrap     
+    width: 100%    
+
+section .card .block-info > div
+    margin-right: 5px
+    
+
+section .card .localization    
+    margin-top: -4px    
+    
+
+section .card .block-info .info    
+    border-radius: 10px    
+    margin: 2px 5px    
+    padding: 0px 10px    
+    display: flex    
+    justify-content: center    
+    align-items: center !important    
+    height: 20px    
+    font-size: 12px !important   
   
+img.unknown
+    width: 20px !important
+    height: 20px !important
 
 /* pagination */
 
@@ -169,6 +190,9 @@ section.publications .card .block-info .info
   
 
 /* help */
+
+section.help
+    background: #fff
 
 section.help .cards 
     display: flex 
@@ -261,5 +285,3 @@ section.help .infocard a p
 
     section.help .infocard 
         width: 266px 
-      
-  

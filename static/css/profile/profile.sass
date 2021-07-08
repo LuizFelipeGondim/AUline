@@ -8,7 +8,19 @@ section.content-main .sidebar
     justify-items: center  
     align-items: center  
   
+.sidebar .thumb 
+    position: relative
+    max-width: 230px
+    height: 200px
+    overflow: hidden
 
+.sidebar .thumb img 
+    position: absolute
+    left: 50%
+    top: 50%
+    height: 100%
+    width: auto
+    transform: translate(-50%,-50%)
 
 section.content-main .sidebar .img-profile   
     border-radius: 5px  
@@ -85,65 +97,69 @@ section.content-main .content h1
     margin-left: 10px  
   
 
-section.content-main .content .cards  
-    display: flex  
-    justify-content: flex-start    
-    flex-wrap: wrap  
 
-  
+section .card 
+    margin: 20px 0px 
+    border: none
 
-section.content-main .content .cards .card  
-    margin: 20px 10px  
-    width: 230px  
-  
-.thumb 
+section .card:hover 
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+    transition: box-shadow 0.7s
+
+section .card a img.card-img-top    
+    z-index: 3    
+    height: 180px
+
+section .card .thumb 
     position: relative
-    max-width: 230px
-    height: 200px
+    height: 180px
     overflow: hidden
+    border-radius: 5px 5px 0px 0px
+    
 
-.thumb img 
+section .card .thumb img 
     position: absolute
     left: 50%
     top: 50%
     height: 100%
     width: auto
     transform: translate(-50%,-50%)
-  
 
-section.content-main .content .cards .card .info-top  
-    display: flex  
-    flex-direction: row  
-    justify-content: space-between   
-  
+section .card .title-info    
+    display: flex !important    
+    justify-content: space-between    
+    align-items: center    
+    width: 100%    
 
-section.content-main .cards .card .info-top img  
-    min-height: 20px  
-  
+section .card .title-info .icons
+    width: 70px   
 
-section.content-main .content .cards .card .block-info  
-    display: flex  
-    justify-content: space-between  
-    align-items: center  
-    width: 100px  
-  
+section .card .block-info    
+    display: flex    
+    flex-wrap: wrap     
+    width: 100%    
 
-section.content-main .content .cards .card .localization  
-    margin-top: -8px  
-  
+section .card .block-info > div
+    margin-right: 5px
+    
 
-section.content-main .content .cards .card .block-info .info p  
-    margin-top: 15px !important  
-    cursor: pointer  
-  
+section .card .localization    
+    margin-top: -4px    
+    
 
-section.content-main .content .cards .card .block-info .info  
-    height: 30px  
-    width: 30px  
-    border-radius: 10px  
-    display: flex  
-    justify-content: center  
-    align-items: center !important  
+section .card .block-info .info    
+    border-radius: 10px    
+    margin: 2px 5px    
+    padding: 0px 10px    
+    display: flex    
+    justify-content: center    
+    align-items: center !important    
+    height: 20px    
+    font-size: 12px !important   
+  
+img.unknown
+    width: 20px !important
+    height: 20px !important
   
 
 /* form */

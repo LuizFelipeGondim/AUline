@@ -5,10 +5,10 @@ from django.utils import timezone
 class Animal(models.Model):
 
     CATEGORIAS = (
-        ('P', 'Perdido'),
-        ('PA', 'Para Adoção'),
-        ('E', 'Encontrado'),
-        ('A', 'Adotado'),
+        ('Perdido', 'Perdido'),
+        ('Para Adoção', 'Para Adoção'),
+        ('Encontrado', 'Encontrado'),
+        ('Adotado', 'Adotado'),
     )
 
     SEXO = (

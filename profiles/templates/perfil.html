@@ -56,17 +56,26 @@
                             <div class="cards">
 
                                 {% for animal in animais %}
-                                    <div class="card">  
-                                        <a href="{% url 'perfil-animal' animal.id %}" > 
-                                            <div class="thumb">
-                                                <img src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
-                                            </div>
-								        </a>
+                                    <div class="card" style="width: 18rem;">
+								
+                                        <a href="{% url 'perfil-animal' animal.id %}" class="thumb"> 
+                                            <img src="../media/{{animal.imagem}}" class="card-img-top" alt="{{animal.nome}}">
+                                        </a>
+                
                                         <div class="card-body">
-                                            <div class="info-top">
-
-                                                <h5 class="black">{{animal.nome}}</h5>
-
+                                            <div class="title-info">
+                                                <h5 class="black">
+                                                    {{animal.nome}}
+                                                    {% if animal.sexo == 'Macho' %}
+                                                        <img src="{% static 'images/svg/male.svg'%}" class="small-icon"> 
+                                                    {% endif %}
+                                                    {% if animal.sexo == 'Fêmea' %}
+                                                        <img src="{% static 'images/svg/female.svg'%}" class="small-icon">
+                                                    {% endif %}
+                                                    {% if animal.sexo == 'Sexo Desconhecido' %}
+                                                        <img src="{% static 'images/svg/unknown.png'%}" class="small-icon unknown">
+                                                    {% endif %}
+                                                </h5>
                                                 <div class="icons" >
                                                     <a href="{% url 'editar-animal' animal.id %}" > 
                                                         <img src="{% static 'images/svg/edit.svg'%}" class="small-icon" alt="Alterar">
@@ -75,61 +84,41 @@
                                                         <img src="{% static 'images/svg/trash.svg'%}" class="small-icon" alt="Excluir">
                                                     </a>
                                                 </div>
-
                                             </div>
                                             
-                                            <p class="black text-opacity localization">{{animal.cidade}}/{{animal.estado}}</p>
+                                            <p class="black text-opacity localization">
+                                                <img src="{% static 'images/svg/address-icon.svg'%}" class="small-icon"> 
+                                                {{animal.cidade}}/{{animal.estado}}
+                                            </p>
                                             <div class="block-info">
-                                                {% if animal.categoria == 'A' %}
-											<div class="info" id="{{animal.id}}" data-toggle="tooltip" data-placement="top" title="Adotado">
-												<p class="white">{{animal.categoria}}</p>
-											</div>
-                                                {% endif %}
-                                                {% if animal.categoria == 'PA' %}
-                                                    <div class="info" id="{{animal.id}}" data-toggle="tooltip" data-placement="top" title="Para adoção">
-                                                        <p class="white">{{animal.categoria}}</p>
-                                                    </div>
-                                                {% endif %}
-                                                {% if animal.categoria == 'P' %}
-                                                    <div class="info" id="{{animal.id}}" data-toggle="tooltip" data-placement="top" title="Perdido">
-                                                        <p class="white">{{animal.categoria}}</p>
-                                                    </div>
-                                                {% endif %}
-                                                {% if animal.categoria == 'E' %}
-                                                    <div class="info" id="{{animal.id}}" data-toggle="tooltip" data-placement="top" title="Encontrado">
-                                                        <p class="white">{{animal.categoria}}</p>
-                                                    </div>
-                                                {% endif %}
-                                                {% if animal.porte == 'Pequeno' %}
-                                                    <div class="info size" data-toggle="tooltip" data-placement="top" title="Pequeno">
-                                                        <p class="white">PE</p>
-                                                    </div>
-                                                {% endif %}
-                                                {% if animal.porte == 'Médio' %}
-                                                    <div class="info size" data-toggle="tooltip" data-placement="top" title="Médio">
-                                                        <p class="white">ME</p>
-                                                    </div>
-                                                {% endif %}
-                                                {% if animal.porte == 'Grande' %}
-                                                    <div class="info size" data-toggle="tooltip" data-placement="top" title="Grande">
-                                                        <p class="white">GR</p>
-                                                    </div>
-                                                {% endif %}
-                                                {% if animal.sexo == 'Macho' %}
-                                                    <div class="info sex-male" data-toggle="tooltip" data-placement="top" title="Macho">
-                                                        <p class="white">M</p>
-                                                    </div>
-                                                {% endif %}
-                                                {% if animal.sexo == 'Fêmea' %}
-                                                    <div class="info sex-female" data-toggle="tooltip" data-placement="top" title="Fêmea">
-                                                        <p class="white">F</p>
-                                                    </div>
-                                                {% endif %}
-                                                {% if animal.sexo == 'Sexo Desconhecido' %}
-                                                    <div class="info" data-toggle="tooltip" data-placement="top" title="Sexo desconhecido" style="background-color: rgb(217, 221, 0);">
-                                                        <p class="white">SD</p>
-                                                    </div>
-                                                {% endif %}
+                                                <div id="{{animal.id}}">
+                                                    <p class="info" >
+                                                        {% if animal.categoria == 'Adotado' %}
+                                                            {{animal.categoria}}
+                                                        {% endif %}
+                                                        {% if animal.categoria == 'Para Adoção' %}
+                                                            {{animal.categoria}}
+                                                        {% endif %}
+                                                        {% if animal.categoria == 'Perdido' %}
+                                                            {{animal.categoria}}
+                                                        {% endif %}
+                                                        {% if animal.categoria == 'Encontrado' %}
+                                                            {{animal.categoria}}
+                                                        {% endif %}
+                                                    </p> 
+                                                </div>
+                                                |
+                                                <p class="info size">
+                                                    {% if animal.porte == 'Pequeno' %}
+                                                        Pequeno
+                                                    {% endif %}
+                                                    {% if animal.porte == 'Médio' %}
+                                                        Médio
+                                                    {% endif %}
+                                                    {% if animal.porte == 'Grande' %}
+                                                        Grande
+                                                    {% endif %}
+                                                </p>
                                             </div>
                                         </div>
                                     </div>

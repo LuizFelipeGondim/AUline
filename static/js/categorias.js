@@ -3,14 +3,18 @@ function CategoriaAnimal(){
     const categorias = JSON.parse(document.getElementById('categorias').textContent);
     const ids = JSON.parse(document.getElementById('ids').textContent);
     for(let i = 0; i < ids.length; i++){
-        if (categorias[ids[i]] == 'E'){
-            document.getElementById(ids[i]).style.background="#5eed5e";
-        } else if (categorias[ids[i]] == 'P'){
-            document.getElementById(ids[i]).style.background="#ed8787";
-        } else if (categorias[ids[i]] == 'PA'){
-            document.getElementById(ids[i]).style.background="#3fbcdb";
-        } else if (categorias[ids[i]] == 'A'){
-            document.getElementById(ids[i]).style.background="#9b228b";
+        if (categorias[ids[i]] == 'Encontrado'){
+            document.getElementById(ids[i]).style.border="2px solid #5eed5e";
+            document.getElementById(ids[i]).style.borderRadius="10px";
+        } else if (categorias[ids[i]] == 'Perdido'){
+            document.getElementById(ids[i]).style.border="2px solid #ed8787";
+            document.getElementById(ids[i]).style.borderRadius="10px";
+        } else if (categorias[ids[i]] == 'Para Adoção'){
+            document.getElementById(ids[i]).style.border="2px solid #3fbcdb";
+            document.getElementById(ids[i]).style.borderRadius="10px";
+        } else if (categorias[ids[i]] == 'Adotado'){
+            document.getElementById(ids[i]).style.border="2px solid #9b228b";
+            document.getElementById(ids[i]).style.borderRadius="10px";
         }
     }
     

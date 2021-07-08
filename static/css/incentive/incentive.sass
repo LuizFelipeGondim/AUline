@@ -12,8 +12,7 @@ section.banner iframe
 section.text-box .adopt-box,
 section.text-box .donate-box  
     display: flex  
-    justify-content: center  
-    height: 550px  
+    justify-content: center   
     position: relative  
   
 
@@ -37,8 +36,93 @@ section.text-box .center-text p
 
 /* address */
 
-section.address .col-md-8  
-    margin-bottom: 30px  
+section.address    
+    background-color: #42E29C   
+   
+
+section.address .col-md-8      
+    display: flex   
+    justify-content: center      
+    flex-wrap: wrap   
+    margin: 15px 0px 70px 0px   
+    
+
+section.address .card    
+    max-width: 230px   
+    height: 300px   
+    margin-top: 10px   
+    margin-left: 10px   
+    border: none   
+    
+
+.thumb    
+    position: relative   
+    width: 100%   
+    height: 100%   
+    min-height: 180px   
+    min-width: 215px   
+    overflow: hidden   
+    
+
+.thumb img    
+    position: absolute   
+    left: 50%   
+    top: 50%   
+    height: 100%   
+    width: auto   
+    transform: translate(-50%, -50%)   
+    
+
+section.address .col-md-4    
+    display: -webkit-box   
+    display: -ms-flexbox   
+    display: flex   
+    align-items: center   
+    justify-content: center   
+    
+
+.flip-card    
+    background-color: transparent   
+    width: 230px   
+    height: 301px     
+    perspective: 1000px   
+    border-radius: 10px   
+    margin-top: 10px   
+    
+
+/* This container is needed to position the front and back side */
+.flip-card-inner    
+    position: relative   
+    width: 100%   
+    height: 100%   
+    text-align: center   
+    transition: transform 0.8s     
+    transform-style: preserve-3d   
+    
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner    
+    transform: rotateY(180deg)   
+    margin-left: 5px   
+    
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back    
+    position: absolute   
+    width: 100%   
+    height: 100%     
+    backface-visibility: hidden   
+    
+
+/* Style the front side (fallback if image is missing */
+/* Style the back side */
+.flip-card-back    
+    background-color: #57bc90   
+    color: white   
+    margin-top: 9px   
+    transform: rotateY(180deg)   
+    padding: 15px   
+    
   
 
 /* statement */
@@ -68,7 +152,7 @@ section.statement-box .depoiments
     section.text-box .adopt-box  
         flex-direction: column  
         align-items: center  
-        margin: 280px 0px 500px 0px  
+        margin: 0px  
       
 
     section.text-box .donate-box  
